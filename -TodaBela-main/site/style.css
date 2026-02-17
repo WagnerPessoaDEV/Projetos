@@ -208,7 +208,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 110px; /* reduzido para aproximar a navbar do topo */
+    height: 220px; /* aumentado para acomodar logo em 100% */
 }
 
 .logo {
@@ -217,9 +217,21 @@ nav {
 }
 
 .logo img {
-    height: 110px; /* ajustado para combinar com a altura reduzida do nav */
+    height: 220px; /* mantido caso a classe seja usada em outro lugar */
     width: auto;
     margin-top: 0;
+    filter: saturate(1.08) contrast(1.08) drop-shadow(0 0 10px var(--logo-glow)) drop-shadow(0 6px 14px var(--logo-shadow));
+}
+
+/* Logo exibida no hero abaixo do botão */
+.hero-logo {
+    text-align: center;
+}
+.hero-logo img {
+    height:440px;
+    width: auto;
+    display: inline-block;
+    margin: 18px auto 0;
     filter: saturate(1.08) contrast(1.08) drop-shadow(0 0 10px var(--logo-glow)) drop-shadow(0 6px 14px var(--logo-shadow));
 }
 
@@ -365,7 +377,7 @@ nav {
     justify-content: center;
     text-align: center;
     color: var(--branco);
-    padding-top: 110px; /* alinhado com a nova altura do nav */
+    padding-top: 220px; /* alinhado com a nova altura do nav */
     overflow: hidden;
 }
 
