@@ -79,18 +79,3 @@ document.addEventListener('click', (e) => {
         });
     }
 });
-
-// 5. Botão Flutuante WhatsApp - Seguir Rolagem
-const whatsappButton = document.querySelector('.whatsapp-float');
-let lastScrollY = 0;
-
-window.addEventListener('scroll', () => {
-    lastScrollY = window.scrollY;
-    
-    // Atualiza a posição do botão durante a rolagem
-    requestAnimationFrame(() => {
-        // Efeito: o botão se move um pouco menos que a rolagem (parallax suave)
-        const offset = lastScrollY * 0.5;
-        whatsappButton.style.transform = `translateY(${offset}px)`;
-    });
-});
