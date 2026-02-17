@@ -18,10 +18,13 @@ menuToggle.addEventListener('click', () => {
 // 2. Fechar menu ao clicar em um link
 document.querySelectorAll('.main-nav a').forEach(link => {
     link.addEventListener('click', () => {
-        if (mainNav.classList.contains('active')) {
-            mainNav.classList.remove('active');
-            menuToggle.querySelector('i').classList.remove('fa-times');
-            menuToggle.querySelector('i').classList.add('fa-bars');
+        // Não fechar menu se clicar em um dropdown no mobile
+        if (!link.closest('.dropdown') || window.innerWidth > 768) {
+            if (mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            }
         }
     });
 });
@@ -40,7 +43,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 4. Botão Flutuante WhatsApp - Seguir Rolagem
+// 4. Dropdown Menu
+const dropdownItems = document.querySelectorAll('.main-nav .dropdown');
+
+dropdownItems.forEach(dropdown => {
+    const link = dropdown.querySelector('a');
+    
+    link.addEventListener('click', (e) => {
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            // Mobile: toggle o submenu
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        } else {
+            // Desktop: toggle o submenu e fechar outros
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+            
+            // Fechar outros dropdowns
+            dropdownItems.forEach(other => {
+                if (other !== dropdown) {
+                    other.classList.remove('active');
+                }
+            });
+        }
+    });
+});
+
+// Fechar dropdown ao clicar fora
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.main-nav .dropdown')) {
+        dropdownItems.forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+});
+
+// 5. Botão Flutuante WhatsApp - Seguir Rolagem
 const whatsappButton = document.querySelector('.whatsapp-float');
 let lastScrollY = 0;
 

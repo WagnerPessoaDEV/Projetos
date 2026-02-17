@@ -66,18 +66,77 @@ img { max-width: 100%; height: auto; }
 }
 
 .main-nav ul { display: flex; }
-.main-nav ul li { margin-left: 20px; }
+.main-nav ul li { 
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
 .main-nav ul li a {
     font-weight: 600;
     color: #333;
     padding: 10px 0;
     border-bottom: 3px solid transparent;
     transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .main-nav ul li a:hover {
     color: var(--azul-escuro);
     border-bottom-color: var(--vermelho);
+}
+
+/* --- DROPDOWN MENU --- */
+.main-nav .dropdown {
+    position: relative;
+}
+
+.main-nav .dropdown i {
+    font-size: 12px;
+    transition: transform 0.3s;
+    margin-left: 3px;
+}
+
+.main-nav .dropdown.active i {
+    transform: rotate(180deg);
+}
+
+.main-nav .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--branco);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    min-width: 200px;
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+    margin-top: 5px;
+}
+
+.main-nav .dropdown.active .submenu {
+    display: flex;
+}
+
+.main-nav .submenu li {
+    margin: 0;
+}
+
+.main-nav .submenu li a {
+    display: block;
+    padding: 12px 20px;
+    border: none;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.main-nav .submenu li a:hover {
+    background-color: var(--cinza-claro);
+    color: var(--azul-escuro);
+    border-left: 4px solid var(--vermelho);
+    padding-left: 16px;
 }
 
 .menu-toggle {
@@ -288,6 +347,29 @@ img { max-width: 100%; height: auto; }
     .main-nav ul { flex-direction: column; width: 100%; }
     .main-nav ul li { margin: 0; }
     .main-nav ul li a { display: block; padding: 15px 20px; border-bottom: 1px solid #eee; }
+    
+    /* Submenu Mobile */
+    .main-nav .submenu {
+        position: static;
+        box-shadow: none;
+        background-color: #f0f0f0;
+        display: none;
+        margin: 0;
+        margin-top: -1px;
+    }
+    
+    .main-nav .dropdown.active .submenu {
+        display: flex;
+    }
+    
+    .main-nav .submenu li a {
+        padding: 12px 20px 12px 40px;
+        border-left: none;
+    }
+    
+    .main-nav .dropdown > i {
+        display: none;
+    }
 
     .hero-banner { height: 350px; }
     .hero-content h1 { font-size: 32px; }
