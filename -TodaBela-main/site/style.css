@@ -208,7 +208,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 220px; /* aumentado para acomodar logo em 100% */
+    height: 140px; /* altura reduzida para aproximar a navbar do topo */
     position: relative;
 }
 
@@ -218,7 +218,7 @@ nav {
 }
 
 .logo img {
-    height: 220px; /* mantido caso a classe seja usada em outro lugar */
+    height: 140px; /* reduzido para acompanhar a nova altura da navbar */
     width: auto;
     margin-top: 0;
     filter: saturate(1.08) contrast(1.08) drop-shadow(0 0 10px var(--logo-glow)) drop-shadow(0 6px 14px var(--logo-shadow));
@@ -383,7 +383,7 @@ nav {
     justify-content: center;
     text-align: center;
     color: var(--branco);
-    padding-top: 220px; /* alinhado com a nova altura do nav */
+    padding-top: 140px; /* alinhado com a nova altura do nav */
     overflow: hidden;
 }
 
