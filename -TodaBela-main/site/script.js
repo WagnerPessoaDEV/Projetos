@@ -170,7 +170,7 @@ const translations = {
         nav_shop: "Loja",
         nav_gallery: "Trabalhos",
         nav_contact: "Contato",
-        hero_title: "Realce sua beleza com quem entende de estilo.",
+        hero_title: "Seu espaço de beleza, cuidado e autoestima todos os dias.",
         hero_subtitle: "Oferecemos cuidados completos em cabelos, unhas e cílios, além de produtos de qualidade profissional para você manter o resultado todos os dias.",
         hero_btn: "Ver Produtos",
         about_title: "Nossa História",

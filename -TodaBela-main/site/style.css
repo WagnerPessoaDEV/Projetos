@@ -236,7 +236,7 @@ nav {
     text-align: center;
 }
 .hero-logo img {
-    height:440px;
+    height:660px;
     width: auto;
     display: inline-block;
     margin: 18px auto 0;
@@ -404,7 +404,7 @@ nav {
     justify-content: center;
     text-align: center;
     color: var(--branco);
-    padding-top: 140px; /* alinhado com a nova altura do nav */
+    padding-top: 120px; /* alinhado com a nova altura do nav */
     overflow: hidden;
 }
 
