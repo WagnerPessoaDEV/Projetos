@@ -59,12 +59,18 @@
                     <li><a href="#loja" data-i18n="nav_shop">Loja</a></li>
                     <li><a href="#galeria" data-i18n="nav_gallery">Galeria</a></li>
                     <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
+                    <li class="nav-cart">
+                        <div class="cart-icon" onclick="toggleCart()" aria-label="Abrir carrinho">
+                            <svg class="cart-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 6h13l-1.4 8.4a2 2 0 0 1-2 1.6H9.4a2 2 0 0 1-2-1.6L6 6z"></path>
+                                <circle cx="10" cy="19" r="1.4"></circle>
+                                <circle cx="18" cy="19" r="1.4"></circle>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
                 </ul>
                 <div style="display: flex; align-items: center;">
-                    <div class="cart-icon" onclick="toggleCart()">
-                        🛒
-                        <span class="cart-count" id="cartCount">0</span>
-                    </div>
                     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
                 </div>
             </nav>

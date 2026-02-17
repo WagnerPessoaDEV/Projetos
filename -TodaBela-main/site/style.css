@@ -253,6 +253,46 @@ nav {
     box-shadow: 0 6px 20px rgba(142, 68, 173, 0.35);
 }
 
+/* Ajustes para o carrinho dentro da barra de navegação */
+.nav-links .nav-cart {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.nav-links .nav-cart .cart-icon {
+    margin-left: 0;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+.nav-links .nav-cart .cart-icon:hover {
+    background: rgba(0,0,0,0.04);
+}
+.nav-links .nav-cart .cart-count {
+    top: -6px; /* ajuste fino dentro do nav */
+    right: -6px;
+    width: 18px;
+    height: 18px;
+    font-size: 0.65rem;
+}
+
+/* SVG do carrinho: cor e efeitos */
+.nav-links .nav-cart .cart-icon .cart-svg {
+    color: var(--cor-secundaria);
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+.nav-links .nav-cart .cart-icon:hover .cart-svg {
+    color: var(--nav-hover-text);
+    filter: drop-shadow(0 4px 12px rgba(142,68,173,0.25));
+}
+
 
 /* Ícone do Carrinho */
 .cart-icon {
