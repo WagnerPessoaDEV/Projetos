@@ -222,6 +222,13 @@ nav {
     width: auto;
     margin-top: 0;
     filter: saturate(1.08) contrast(1.08) drop-shadow(0 0 10px var(--logo-glow)) drop-shadow(0 6px 14px var(--logo-shadow));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.logo img:hover {
+    transform: scale(1.08) translateY(-3px);
+    filter: saturate(1.2) contrast(1.15) drop-shadow(0 0 20px var(--logo-glow)) drop-shadow(0 10px 25px var(--logo-shadow));
 }
 
 /* Logo exibida no hero abaixo do botão */
@@ -234,6 +241,18 @@ nav {
     display: inline-block;
     margin: 18px auto 0;
     filter: saturate(1.08) contrast(1.08) drop-shadow(0 0 10px var(--logo-glow)) drop-shadow(0 6px 14px var(--logo-shadow));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.hero-logo a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.hero-logo img:hover {
+    transform: scale(1.05) translateY(-5px);
+    filter: saturate(1.25) contrast(1.2) drop-shadow(0 0 25px var(--logo-glow)) drop-shadow(0 15px 35px var(--logo-shadow));
 }
 
 .nav-links {
@@ -297,14 +316,16 @@ nav {
 
 /* SVG do carrinho: cor e efeitos */
 .nav-links .nav-cart .cart-icon .cart-svg {
-    color: var(--cor-secundaria);
+    color: #ffffff;
     width: 20px;
     height: 20px;
     display: block;
+    transition: all 0.3s ease;
 }
 .nav-links .nav-cart .cart-icon:hover .cart-svg {
-    color: var(--nav-hover-text);
-    filter: drop-shadow(0 4px 12px rgba(142,68,173,0.25));
+    color: var(--cor-secundaria);
+    filter: drop-shadow(0 4px 12px rgba(142,68,173,0.45));
+    transform: scale(1.1);
 }
 
 
