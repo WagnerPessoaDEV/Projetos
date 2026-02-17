@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Motos - Concessionária de Motos</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para ícones básicos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- TOPO (Barra de Contato) -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <span><i class="fas fa-phone-alt"></i> (21) 99999-9999</span>
+                <span><i class="fas fa-map-marker-alt"></i> Av. das Motos, 123 - Teresópolis</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO E MENU -->
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="https://via.placeholder.com/200x60/003da5/ffffff?text=PRIME+MOTOS" alt="Prime Motos Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#estoque">Estoque</a></li>
+                    <li><a href="#venda-sua-moto">Venda sua Moto</a></li>
+                    <li><a href="#financiamento">Financiamento</a></li>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <!-- Botão Menu Mobile -->
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- BANNER PRINCIPAL -->
+    <section class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Encontre a Moto Ideal</h1>
+            <p>As melhores condições de compra, venda e troca da região.</p>
+            <a href="#estoque" class="btn-primary">Ver Estoque</a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: ESTOQUE -->
+    <section id="estoque" class="section-pad">
+        <div class="container">
+            <h2 class="section-title">Nosso Estoque</h2>
+            <div class="grid-motos">
+                <!-- Card Moto 1 -->
+                <div class="card-moto">
+                    <div class="card-img-wrapper">
+                        <img src="https://source.unsplash.com/400x300/?motorcycle,street" alt="Moto em Destaque">
+                    </div>
+                    <div class="card-body">
+                        <h3>Honda CB 500F</h3>
+                        <div class="price">R$ 35.900,00</div>
+                        <p class="details">2022 | 5.000 km | Único Dono</p>
+                        <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Tenho Interesse</a>
+                    </div>
+                </div>
+                <!-- Card Moto 2 -->
+                <div class="card-moto">
+                    <div class="card-img-wrapper">
+                        <img src="https://source.unsplash.com/400x300/?yamaha,motorcycle" alt="Moto em Destaque">
+                    </div>
+                    <div class="card-body">
+                        <h3>Yamaha MT-03</h3>
+                        <div class="price">R$ 32.500,00</div>
+                        <p class="details">2023 | 0 km | Nova</p>
+                        <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Tenho Interesse</a>
+                    </div>
+                </div>
+                <!-- Card Moto 3 -->
+                <div class="card-moto">
+                    <div class="card-img-wrapper">
+                        <img src="https://source.unsplash.com/400x300/?kawasaki,ninja" alt="Moto em Destaque">
+                    </div>
+                    <div class="card-body">
+                        <h3>Kawasaki Ninja 400</h3>
+                        <div class="price">R$ 42.000,00</div>
+                        <p class="details">2021 | 8.000 km | IPVA Pago</p>
+                        <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Tenho Interesse</a>
+                    </div>
+                </div>
+                <!-- Card Moto 4 -->
+                <div class="card-moto">
+                    <div class="card-img-wrapper">
+                        <img src="https://source.unsplash.com/400x300/?harley,davidson" alt="Moto em Destaque">
+                    </div>
+                    <div class="card-body">
+                        <h3>Harley Davidson 883</h3>
+                        <div class="price">R$ 55.000,00</div>
+                        <p class="details">2019 | 12.000 km | Custom</p>
+                        <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Tenho Interesse</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: VENDA SUA MOTO -->
+    <section id="venda-sua-moto" class="section-pad bg-light">
+        <div class="container flex-row">
+            <div class="text-content">
+                <h2 class="section-title">Venda sua Moto</h2>
+                <p>Precisa vender sua moto rápido? Nós compramos! Oferecemos as melhores avaliações do mercado. Envie seus dados para uma análise prévia.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check-circle"></i> Avaliação justa e rápida</li>
+                    <li><i class="fas fa-check-circle"></i> Pagamento à vista</li>
+                    <li><i class="fas fa-check-circle"></i> Sem burocracia</li>
+                </ul>
+                <a href="#contato" class="btn-secondary">Quero Vender</a>
+            </div>
+            <div class="image-content">
+                <img src="https://source.unsplash.com/600x400/?motorcycle,sell" alt="Venda sua Moto">
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: FINANCIAMENTO -->
+    <section id="financiamento" class="section-pad">
+        <div class="container text-center">
+            <h2 class="section-title">Financiamento Fácil</h2>
+            <p class="subtitle">Parcele sua moto em até 60x. Trabalhamos com os principais bancos do mercado.</p>
+            <div class="flex-icons">
+                <div class="icon-box">
+                    <i class="fas fa-percent"></i>
+                    <h4>Taxas Reduzidas</h4>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Crédito Fácil</h4>
+                </div>
+                <div class="icon-box">
+                    <i class="fas fa-clock"></i>
+                    <h4>Aprovação Rápida</h4>
+                </div>
+            </div>
+            <a href="#" class="btn-primary">Simular Financiamento</a>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: QUEM SOMOS -->
+    <section id="quem-somos" class="section-pad bg-light">
+        <div class="container">
+            <h2 class="section-title">Quem Somos</h2>
+            <p>Somos uma concessionária especializada em motos novas e seminovas, localizada no coração de Teresópolis. Com anos de experiência no mercado, nossa missão é proporcionar a melhor experiência de compra, oferecendo transparência, qualidade e atendimento personalizado.</p>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Prime Motos</h3>
+                <p>Sua concessionária de confiança em Teresópolis e região.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#estoque">Estoque</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. das Motos, 123</p>
+                <p><i class="fas fa-phone"></i> (21) 99999-9999</p>
+                <p><i class="fas fa-envelope"></i> contato@primemotos.com.br</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Prime Motos - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/5521999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
