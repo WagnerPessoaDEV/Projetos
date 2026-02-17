@@ -177,11 +177,7 @@ const translations = {
         about_text: "O Toda Bela nasceu de um sonho, de muita dedicação e de um amor verdadeiro pelo universo da beleza e do cuidado. Em 2023, esse sonho se tornou realidade: a conquista do meu próprio salão, um espaço pensado para acolher, transformar e elevar a autoestima de cada cliente.<br><br>Essa realização não aconteceu sozinha. Ela foi construída com esforço, perseverança e, principalmente, com o apoio do meu marido. Juntos, transformamos um sonho em um lugar cheio de propósito, carinho e significado.<br><br>No Toda Bela, cada detalhe foi pensado para que você se sinta especial desde o momento em que entra. Aqui, unimos experiência, dedicação e as tendências mais atuais da moda e da beleza.<br><br>Nossa missão é proporcionar mais do que serviços de qualidade — queremos oferecer momentos de cuidado, renovação e bem-estar.<br><br>Além dos nossos serviços, também oferecemos produtos selecionados para que você possa continuar seu autocuidado em casa.",
         team_title: "Nossa Equipe",
         team_erlane_role: "Nails Designer",
-        team_erlane_desc: "Especialista em design de unhas, Erlane Souza é dedicada a oferecer beleza, cuidado e bem-estar em cada atendimento. Com foco em técnicas modernas e produtos de alta qualidade, seu trabalho é voltado para realçar a elegância natural e fortalecer a autoestima de cada cliente.
-
-Apaixonada pelo que faz, Erlane preza por um atendimento personalizado, entendendo as necessidades e o estilo de cada pessoa para entregar resultados duradouros, sofisticados e de alto padrão.
-
-Mais do que unhas bonitas, a proposta é proporcionar uma experiência de cuidado, confiança e valorização da sua beleza.",
+        team_erlane_desc: "Especialista em design de unhas, Erlane Souza é dedicada a oferecer beleza, cuidado e bem-estar em cada atendimento. Com foco em técnicas modernas e produtos de alta qualidade, seu trabalho é voltado para realçar a elegância natural e fortalecer a autoestima de cada cliente."
         team_jessica_role: "Hair Designer",
         team_jessica_desc: "Dedicada a transformar cada atendimento em uma experiência única, com carinho, profissionalismo e atenção a cada cliente.",
         team_bianca_role: "Lash Designer",
@@ -190,7 +186,7 @@ Mais do que unhas bonitas, a proposta é proporcionar uma experiência de cuidad
         service_nails_desc: "Pé e Mão Simples<br>Esmaltação em Gel<br>Postiça Realista<br>Banho de Gel<br>Molde F1<br>Gel na Tips.",
         service_lash_desc: "Design de sobrancelha<br>Brow lamination<br>Volume brasileiro<br>Volume egípcio<br>Mega volume",
         service_hair_desc: "Consultoria de Visagismo<br>Cortes Personalizados<br>Colorimetria Avançada<br>Hair Styling e Penteados<br>Tratamentos e Nutrição<br>Alisamentos",
-        shop_title: "Loja Virtual",
+        shop_title: "Produtos em Destaques",
         shop_subtitle: "Leve para casa produtos profissionais de beleza, além de peças de lingerie e itens de bem-estar e autoestima selecionados especialmente para você.",
         gallery_title: "Resultados que Encantam",
         footer_desc: "Realçando sua beleza com profissionalismo e cuidado.",
