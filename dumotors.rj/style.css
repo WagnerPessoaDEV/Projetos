@@ -197,6 +197,27 @@ img { max-width: 100%; height: auto; }
 .text-center { text-align: center; }
 .text-center .section-title { display: inline-block; border-left: none; border-bottom: 4px solid var(--vermelho); padding-left: 0; padding-bottom: 10px; }
 
+/* --- CATEGORIAS DE ESTOQUE --- */
+.estoque-categoria {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #eee;
+}
+
+.estoque-categoria:last-child {
+    border-bottom: none;
+}
+
+.categoria-title {
+    font-size: 24px;
+    color: var(--azul-escuro);
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    border-left: 4px solid var(--vermelho);
+    text-transform: uppercase;
+}
+
 /* --- GRID DE MOTOS --- */
 .grid-motos {
     display: grid;
