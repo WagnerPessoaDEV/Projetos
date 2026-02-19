@@ -1,9 +1,9 @@
-// 1. Menu Mobile Toggle
+//menu Mobile Toggle
 const menuToggle = document.getElementById('menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 const themeToggle = document.getElementById('theme-toggle');
 
-// 0. Tema claro/escuro
+//tema claro/escuro
 const THEME_STORAGE_KEY = 'dumotors-theme';
 
 function updateThemeIcon(theme) {
@@ -38,7 +38,7 @@ if (themeToggle) {
 
 menuToggle.addEventListener('click', () => {
     mainNav.classList.toggle('active');
-    // Troca o ícone (opcional)
+    //troca o ícone (opcional)
     const icon = menuToggle.querySelector('i');
     if (mainNav.classList.contains('active')) {
         icon.classList.remove('fa-bars');
@@ -49,10 +49,10 @@ menuToggle.addEventListener('click', () => {
     }
 });
 
-// 2. Fechar menu ao clicar em um link
+//fechar menu ao clicar em um link
 document.querySelectorAll('.main-nav a').forEach(link => {
     link.addEventListener('click', () => {
-        // Não fechar menu se clicar em um dropdown no mobile
+        //não fechar menu se clicar em um dropdown no mobile
         if (!link.closest('.dropdown') || window.innerWidth > 768) {
             if (mainNav.classList.contains('active')) {
                 mainNav.classList.remove('active');
@@ -63,7 +63,7 @@ document.querySelectorAll('.main-nav a').forEach(link => {
     });
 });
 
-// 3. Scroll Suave para links internos
+//scroll Suave para links internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -77,7 +77,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 4. Dropdown Menu
+//dropdown Menu
 const dropdownItems = document.querySelectorAll('.main-nav .dropdown');
 
 dropdownItems.forEach(dropdown => {
@@ -87,15 +87,15 @@ dropdownItems.forEach(dropdown => {
         const isMobile = window.innerWidth <= 768;
         
         if (isMobile) {
-            // Mobile: toggle o submenu
+            //mobile: toggle o submenu
             e.preventDefault();
             dropdown.classList.toggle('active');
         } else {
-            // Desktop: toggle o submenu e fechar outros
+            //desktop: toggle o submenu e fechar outros
             e.preventDefault();
             dropdown.classList.toggle('active');
             
-            // Fechar outros dropdowns
+            //fechar outros dropdowns
             dropdownItems.forEach(other => {
                 if (other !== dropdown) {
                     other.classList.remove('active');
@@ -105,7 +105,7 @@ dropdownItems.forEach(dropdown => {
     });
 });
 
-// Fechar dropdown ao clicar fora
+//fechar dropdown ao clicar fora
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.main-nav .dropdown')) {
         dropdownItems.forEach(dropdown => {
