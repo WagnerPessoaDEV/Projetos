@@ -1,6 +1,40 @@
 // 1. Menu Mobile Toggle
 const menuToggle = document.getElementById('menu-toggle');
 const mainNav = document.querySelector('.main-nav');
+const themeToggle = document.getElementById('theme-toggle');
+
+// 0. Tema claro/escuro
+const THEME_STORAGE_KEY = 'dumotors-theme';
+
+function updateThemeIcon(theme) {
+    if (!themeToggle) return;
+    const icon = themeToggle.querySelector('i');
+    if (!icon) return;
+
+    icon.classList.remove('fa-moon', 'fa-sun');
+    icon.classList.add(theme === 'dark' ? 'fa-sun' : 'fa-moon');
+}
+
+function applyTheme(theme) {
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+    updateThemeIcon(theme);
+}
+
+const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+applyTheme(initialTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.contains('dark-mode');
+        const nextTheme = isDark ? 'light' : 'dark';
+
+        applyTheme(nextTheme);
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    });
+}
 
 menuToggle.addEventListener('click', () => {
     mainNav.classList.toggle('active');
