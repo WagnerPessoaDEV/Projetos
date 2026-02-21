@@ -25,6 +25,11 @@ body {
     position: relative;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* --- BACKGROUND ANIMADO (Blobs) --- */
 .bg-blob {
     position: fixed;
@@ -129,14 +134,14 @@ nav {
 }
 
 .hero-text h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
     color: var(--primary);
     margin-bottom: 10px;
     font-family: 'Fira Code', monospace;
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: clamp(2.2rem, 6vw, 4rem);
     line-height: 1.1;
     margin-bottom: 20px;
     background: linear-gradient(to right, #fff, #a5a5a5);
@@ -166,7 +171,7 @@ nav {
 }
 
 .hero-text p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.3vw, 1.2rem);
     color: var(--text-muted);
     margin-bottom: 30px;
     max-width: 500px;
@@ -240,8 +245,8 @@ nav {
 }
 
 .hero-img {
-    width: 400px;
-    height: 400px;
+    width: clamp(240px, 45vw, 400px);
+    height: clamp(240px, 45vw, 400px);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     object-fit: cover;
     border: 3px solid rgba(255, 255, 255, 0.1);
@@ -273,7 +278,7 @@ nav {
 .code-card.c2 { bottom: 10%; left: 0%; animation: float 7s infinite 2s; }
 
 /* --- SEÇÕES GERAIS --- */
-section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+section { padding: clamp(70px, 10vw, 100px) 20px; max-width: 1200px; margin: 0 auto; }
 
 .section-header {
     margin-bottom: 60px;
@@ -282,7 +287,7 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     position: relative;
     z-index: 2;
 }
@@ -631,11 +636,51 @@ footer {
 }
 
 /* --- RESPONSIVIDADE --- */
+@media (max-width: 1100px) {
+    .hero-content { gap: 30px; }
+    .code-card.c1 { right: 2%; }
+    .code-card.c2 { left: -2%; }
+    .modal-content { max-width: 90vw; }
+}
+
 @media (max-width: 900px) {
+    header { padding: 14px 0; }
+    nav { flex-wrap: wrap; gap: 12px; }
+    .nav-links { flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .hero { height: auto; padding: 110px 20px 40px; }
     .hero-content { grid-template-columns: 1fr; text-align: center; }
-    .hero-img { width: 300px; height: 300px; margin: 0 auto; }
-    .btn-group { justify-content: center; }
-    .contact-wrapper { grid-template-columns: 1fr; }
-    .nav-links { display: none; } /* Menu simplificado para mobile */
+    .btn-group { justify-content: center; flex-wrap: wrap; }
+    .hero-text p { margin-left: auto; margin-right: auto; }
+    .code-card { display: none; }
+    .contact-wrapper { grid-template-columns: 1fr; padding: 40px; }
     .section-header::before { display: none; }
+    .modal-meta { flex-wrap: wrap; }
+}
+
+@media (max-width: 700px) {
+    nav { flex-direction: column; align-items: center; }
+    .logo { font-size: 1.5rem; }
+    .nav-links { font-size: 0.95rem; }
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; }
+    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .modal-body { padding: 24px; }
+    .contact-wrapper { padding: 30px; }
+    .contact-info h3 { font-size: 1.6rem; }
+}
+
+@media (max-width: 520px) {
+    .hero { padding: 100px 16px 30px; }
+    .btn-group { flex-direction: column; align-items: stretch; gap: 12px; }
+    .btn { justify-content: center; width: 100%; }
+    .project-img-container { aspect-ratio: 4 / 3; }
+    .modal-title { font-size: 1.5rem; }
+    .modal-meta { gap: 10px; font-size: 0.8rem; }
+    .modal-desc { font-size: 1rem; }
+    .modal-features { grid-template-columns: 1fr; }
+    .video-grid { grid-template-columns: 1fr; }
+    .contact-item { align-items: flex-start; gap: 10px; }
+    .bg-blob { filter: blur(60px); }
+    .blob-1 { width: 320px; height: 320px; }
+    .blob-2 { width: 360px; height: 360px; }
+    .blob-3 { width: 220px; height: 220px; }
 }
