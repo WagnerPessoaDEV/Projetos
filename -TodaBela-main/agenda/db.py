@@ -16,9 +16,15 @@ def init_db():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         phone TEXT,
+        notes TEXT,
         created_at TEXT DEFAULT (datetime('now'))
     );
     """)
+
+    cur.execute("PRAGMA table_info(clients)")
+    columns = {row[1] for row in cur.fetchall()}
+    if "notes" not in columns:
+        cur.execute("ALTER TABLE clients ADD COLUMN notes TEXT")
 
     cur.execute("""
     CREATE TABLE IF NOT EXISTS services (

@@ -10,17 +10,20 @@ def format_dt(dt: datetime) -> str:
     return dt.strftime(DATETIME_FMT)
 
 # ---------- CLIENTES ----------
-def add_client(name: str, phone: str | None):
+def add_client(name: str, phone: str | None, notes: str | None = None):
     conn = get_conn()
     cur = conn.cursor()
-    cur.execute("INSERT INTO clients (name, phone) VALUES (?, ?)", (name.strip(), phone))
+    cur.execute(
+        "INSERT INTO clients (name, phone, notes) VALUES (?, ?, ?)",
+        (name.strip(), phone, notes)
+    )
     conn.commit()
     conn.close()
 
 def list_clients():
     conn = get_conn()
     cur = conn.cursor()
-    cur.execute("SELECT id, name, phone FROM clients ORDER BY name")
+    cur.execute("SELECT id, name, phone, notes FROM clients ORDER BY name")
     rows = cur.fetchall()
     conn.close()
     return rows

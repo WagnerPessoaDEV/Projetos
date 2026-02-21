@@ -45,7 +45,8 @@ def show_clients():
         print("Nenhum cliente cadastrado.")
         return
     for r in rows:
-        print(f"[{r['id']}] {r['name']} - {r['phone'] or 'sem telefone'}")
+        notes = f" | Obs: {r['notes']}" if r["notes"] else ""
+        print(f"[{r['id']}] {r['name']} - {r['phone'] or 'sem telefone'}{notes}")
 
 def show_services():
     rows = list_services()
@@ -101,7 +102,8 @@ def main():
             if op == "1":
                 name = input("Nome do cliente: ").strip()
                 phone = input("Telefone (opcional): ").strip() or None
-                add_client(name, phone)
+                notes = input("Observação (opcional): ").strip() or None
+                add_client(name, phone, notes)
                 print("✅ Cliente cadastrado!")
 
             elif op == "2":
