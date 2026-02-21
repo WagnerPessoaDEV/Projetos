@@ -10,12 +10,15 @@ def format_dt(dt: datetime) -> str:
     return dt.strftime(DATETIME_FMT)
 
 # ---------- CLIENTES ----------
-def add_client(name: str, phone: str | None, notes: str | None = None):
+def add_client(name: str, phone: str, notes: str | None = None):
+    phone_value = phone.strip()
+    if not phone_value:
+        raise ValueError("Telefone é obrigatório.")
     conn = get_conn()
     cur = conn.cursor()
     cur.execute(
         "INSERT INTO clients (name, phone, notes) VALUES (?, ?, ?)",
-        (name.strip(), phone, notes)
+        (name.strip(), phone_value, notes)
     )
     conn.commit()
     conn.close()

@@ -101,7 +101,9 @@ def main():
         try:
             if op == "1":
                 name = input("Nome do cliente: ").strip()
-                phone = input("Telefone (opcional): ").strip() or None
+                phone = input("Telefone: ").strip()
+                if not phone:
+                    raise ValueError("Telefone é obrigatório.")
                 notes = input("Observação (opcional): ").strip() or None
                 add_client(name, phone, notes)
                 print("✅ Cliente cadastrado!")

@@ -15,7 +15,7 @@ def init_db():
     CREATE TABLE IF NOT EXISTS clients (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
-        phone TEXT,
+        phone TEXT NOT NULL,
         notes TEXT,
         created_at TEXT DEFAULT (datetime('now'))
     );
