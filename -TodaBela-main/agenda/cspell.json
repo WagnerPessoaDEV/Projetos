@@ -1,7 +1,14 @@
 {
   "version": "0.2",
-  "language": "pt-BR,en",
-  "dictionaries": ["pt_BR"],
+  "language": "pt-BR,pt,en",
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": "./cspell-words.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": ["project-words"],
   "ignorePaths": [
     "**/__pycache__/**",
     "**/*.db"
