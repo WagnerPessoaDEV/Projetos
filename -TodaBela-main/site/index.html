@@ -35,7 +35,9 @@
     <header>
         <div class="container">
             <nav>
-                <!-- logo movida para o hero -->
+                <div class="logo">
+                    <img src="imagens/logo.png" alt="Toda Bela">
+                </div>
                 
                 <!-- Controles de Tema e Idioma -->
                 <div class="controls">
@@ -57,18 +59,12 @@
                     <li><a href="#loja" data-i18n="nav_shop">Loja</a></li>
                     <li><a href="#galeria" data-i18n="nav_gallery">Galeria</a></li>
                     <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
-                    <li class="nav-cart">
-                        <div class="cart-icon" onclick="toggleCart()" aria-label="Abrir carrinho">
-                            <svg class="cart-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M6 6h13l-1.4 8.4a2 2 0 0 1-2 1.6H9.4a2 2 0 0 1-2-1.6L6 6z"></path>
-                                <circle cx="10" cy="19" r="1.4"></circle>
-                                <circle cx="18" cy="19" r="1.4"></circle>
-                            </svg>
-                            <span class="cart-count" id="cartCount">0</span>
-                        </div>
-                    </li>
                 </ul>
                 <div style="display: flex; align-items: center;">
+                    <div class="cart-icon" onclick="toggleCart()">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
                     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
                 </div>
             </nav>
@@ -86,15 +82,10 @@
             <div class="slide" style="background-image: url('imagens/FrenteLoja.jpg');"></div>
         </div>
         <div class="hero-overlay"></div>
-            <div class="hero-content container">
+        <div class="hero-content container">
             <h1 data-i18n="hero_title">Realce sua beleza com quem entende de estilo.</h1>
             <p data-i18n="hero_subtitle">Oferecemos cuidados completos em cabelos, unhas e cílios, além de produtos de qualidade profissional para você manter o resultado todos os dias.</p>
             <a href="#loja" class="btn" data-i18n="hero_btn">Ver Produtos</a>
-            <div class="hero-logo">
-                <a href="https://www.instagram.com/todabela.oficial/" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso Instagram">
-                    <img src="imagens/logo.png" alt="Toda Bela">
-                </a>
-            </div>
         </div>
     </section>
 
@@ -130,11 +121,7 @@ Toda Bela é mais do que um salão.
                     </div>
                     <h3>Jessica Oliveira</h3>
                     <p data-i18n="team_jessica_role">Hair Designer</p>
-                    <p data-i18n="team_jessica_desc">Especialista em cuidados e transformação capilar, Jessica Oliveira é apaixonada por realçar a beleza e a personalidade de cada cliente. Com técnicas atualizadas e o uso de produtos profissionais, seu trabalho é focado em saúde, estilo e resultados naturais e sofisticados.
-
-Comprometida com a qualidade e o atendimento personalizado, Jessica analisa as necessidades de cada cabelo para oferecer cortes, tratamentos e finalizações que valorizam a identidade e elevam a autoestima.
-
-Mais do que mudar o visual, seu objetivo é proporcionar uma experiência de cuidado, confiança e bem-estar, destacando o melhor de cada cliente.</p>
+                    <p data-i18n="team_jessica_desc">Dedicada a transformar cada atendimento em uma experiência única, com carinho, profissionalismo e atenção a cada cliente.</p>
                 </div>
                 <div class="servico-card">
                     <div class="equipe-img-container">
@@ -142,11 +129,7 @@ Mais do que mudar o visual, seu objetivo é proporcionar uma experiência de cui
                     </div>
                     <h3>Erlane Souza</h3>
                     <p data-i18n="team_erlane_role">Nails Designer</p>
-                    <p data-i18n="team_erlane_desc">Especialista em design de unhas, Erlane Souza é dedicada a oferecer beleza, cuidado e bem-estar em cada atendimento. Com foco em técnicas modernas e produtos de alta qualidade, seu trabalho é voltado para realçar a elegância natural e fortalecer a autoestima de cada cliente.
-
-Apaixonada pelo que faz, Erlane preza por um atendimento personalizado, entendendo as necessidades e o estilo de cada pessoa para entregar resultados duradouros, sofisticados e de alto padrão.
-
-Mais do que unhas bonitas, a proposta é proporcionar uma experiência de cuidado, confiança e valorização da sua beleza.</p>
+                    <p data-i18n="team_erlane_desc">Especialista em beleza e cuidados personalizados. Apaixonada por realçar a autoestima e proporcionar resultados naturais e modernos.</p>
                 </div>
                 <div class="servico-card">
                     <div class="equipe-img-container">
@@ -154,9 +137,7 @@ Mais do que unhas bonitas, a proposta é proporcionar uma experiência de cuidad
                     </div>
                     <h3>Bianca Lima</h3>
                     <p data-i18n="team_bianca_role">Lash Designer</p>
-                    <p data-i18n="team_bianca_desc">Especialista em design de cílios, Bianca Lima é dedicada a realçar o olhar e a beleza natural de cada cliente com técnica, precisão e cuidado. Utilizando métodos atualizados e produtos de alta qualidade, seu trabalho é focado em conforto, segurança e resultados leves, elegantes e duradouros. Comprometida com a excelência e o atendimento personalizado.
-
-Com atenção aos detalhes e compromisso com a segurança e o conforto, Bianca busca valorizar a autoestima e oferecer uma experiência de cuidado, beleza e confiança em cada atendimento.</p>
+                    <p data-i18n="team_bianca_desc">Focada em técnicas atualizadas e atendimento detalhista, oferecendo qualidade, segurança e um atendimento acolhedor em cada procedimento.</p>
                 </div>
             </div>
         </div>
@@ -259,7 +240,7 @@ Com atenção aos detalhes e compromisso com a segurança e o conforto, Bianca b
     <section id="loja" class="loja">
         <div class="container-fluid">
             <div class="section-title">
-                <h2 data-i18n="shop_title">Produtos em Destaques</h2>
+                <h2 data-i18n="shop_title">Loja Virtual</h2>
                 <p data-i18n="shop_subtitle">Leve para casa produtos profissionais de beleza, além de peças de lingerie e itens de bem-estar e autoestima selecionados especialmente para você.</p>
             </div>
 
