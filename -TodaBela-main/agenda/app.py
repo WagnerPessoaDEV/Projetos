@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from db import init_db
 from models import (
     add_client, list_clients,
@@ -26,6 +28,17 @@ def menu():
     print("9) Remarcar agendamento")
     print("0) Sair")
 
+def normalize_date_input(date_str: str) -> str:
+    value = date_str.strip().lower()
+    if value == "hoje":
+        return datetime.now().strftime("%Y-%m-%d")
+    for fmt in ("%Y-%m-%d", "%d/%m/%Y", "%d-%m-%Y"):
+        try:
+            return datetime.strptime(value, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    raise ValueError("Data inválida. Use YYYY-MM-DD ou DD/MM/YYYY.")
+
 def show_clients():
     rows = list_clients()
     if not rows:
@@ -43,7 +56,14 @@ def show_services():
         print(f"[{r['id']}] {r['name']} - {r['duration_minutes']} min - R$ {r['price']:.2f}")
 
 def show_agenda_day():
-    day = input("Dia (YYYY-MM-DD): ").strip()
+    day_raw = input("Dia (YYYY-MM-DD ou DD/MM/YYYY, ou enter para hoje): ").strip()
+    if not day_raw:
+        day_raw = "hoje"
+    try:
+        day = normalize_date_input(day_raw)
+    except ValueError as e:
+        print(f"❌ {e}")
+        return
     rows = list_appointments_by_day(day)
     if not rows:
         print("Sem agendamentos para esse dia.")
@@ -52,8 +72,18 @@ def show_agenda_day():
         print(f"[{r['id']}] {r['start_at']} → {r['end_at']} | {r['professional']} | {r['client_name']} | {r['service_name']} | {r['status']}")
 
 def show_agenda_between():
-    start_day = input("Data inicial (YYYY-MM-DD): ").strip()
-    end_day = input("Data final (YYYY-MM-DD): ").strip()
+    start_raw = input("Data inicial (YYYY-MM-DD ou DD/MM/YYYY, ou enter para hoje): ").strip()
+    end_raw = input("Data final (YYYY-MM-DD ou DD/MM/YYYY, ou enter para hoje): ").strip()
+    if not start_raw:
+        start_raw = "hoje"
+    if not end_raw:
+        end_raw = "hoje"
+    try:
+        start_day = normalize_date_input(start_raw)
+        end_day = normalize_date_input(end_raw)
+    except ValueError as e:
+        print(f"❌ {e}")
+        return
     rows = list_appointments_between(start_day, end_day)
     if not rows:
         print("Sem agendamentos nesse período.")
