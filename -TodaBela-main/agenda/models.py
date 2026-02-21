@@ -39,6 +39,22 @@ def get_client(client_id: int):
     conn.close()
     return row
 
+def update_client(client_id: int, name: str, phone: str, notes: str | None = None):
+    name_value = name.strip()
+    phone_value = phone.strip()
+    if not name_value:
+        raise ValueError("Nome é obrigatório.")
+    if not phone_value:
+        raise ValueError("Telefone é obrigatório.")
+    conn = get_conn()
+    cur = conn.cursor()
+    cur.execute(
+        "UPDATE clients SET name = ?, phone = ?, notes = ? WHERE id = ?",
+        (name_value, phone_value, notes, client_id)
+    )
+    conn.commit()
+    conn.close()
+
 # ---------- SERVIÇOS ----------
 def add_service(name: str, duration_minutes: int, price: float = 0.0):
     conn = get_conn()

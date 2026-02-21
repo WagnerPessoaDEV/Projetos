@@ -2,7 +2,7 @@ from datetime import datetime
 
 from db import init_db
 from models import (
-    add_client, list_clients,
+    add_client, list_clients, get_client, update_client,
     add_service, list_services,
     add_appointment, list_appointments_by_day, list_appointments_between,
     cancel_appointment, reschedule_appointment
@@ -19,13 +19,14 @@ def menu():
     print("\n=== AGENDA DO SALÃO ===")
     print("1) Cadastrar cliente")
     print("2) Listar clientes")
-    print("3) Cadastrar serviço")
-    print("4) Listar serviços")
-    print("5) Agendar horário")
-    print("6) Ver agenda do dia")
-    print("7) Ver agenda por período")
-    print("8) Cancelar agendamento")
-    print("9) Remarcar agendamento")
+    print("3) Editar cliente")
+    print("4) Cadastrar serviço")
+    print("5) Listar serviços")
+    print("6) Agendar horário")
+    print("7) Ver agenda do dia")
+    print("8) Ver agenda por período")
+    print("9) Cancelar agendamento")
+    print("10) Remarcar agendamento")
     print("0) Sair")
 
 def normalize_date_input(date_str: str) -> str:
@@ -55,6 +56,33 @@ def show_services():
         return
     for r in rows:
         print(f"[{r['id']}] {r['name']} - {r['duration_minutes']} min - R$ {r['price']:.2f}")
+
+def edit_client():
+    print("\n--- Clientes ---")
+    show_clients()
+    client_id = read_int("ID do cliente para editar: ")
+
+    client = get_client(client_id)
+    if not client:
+        print("Cliente não encontrado.")
+        return
+
+    name_raw = input(f"Nome ({client['name']}): ").strip()
+    phone_raw = input(f"Telefone ({client['phone']}): ").strip()
+    notes_prompt = "Observação (enter mantém, '-' remove): "
+    notes_raw = input(notes_prompt).strip()
+
+    name = name_raw or client["name"]
+    phone = phone_raw or client["phone"]
+    if notes_raw == "-":
+        notes = None
+    elif notes_raw == "":
+        notes = client["notes"]
+    else:
+        notes = notes_raw
+
+    update_client(client_id, name, phone, notes)
+    print("✅ Cliente atualizado!")
 
 def show_agenda_day():
     day_raw = input("Dia (YYYY-MM-DD ou DD/MM/YYYY, ou enter para hoje): ").strip()
@@ -112,6 +140,9 @@ def main():
                 show_clients()
 
             elif op == "3":
+                edit_client()
+
+            elif op == "4":
                 name = input("Nome do serviço: ").strip()
                 duration = read_int("Duração (minutos): ")
                 price_str = input("Preço (ex: 80.00) (opcional): ").strip()
@@ -119,10 +150,10 @@ def main():
                 add_service(name, duration, price)
                 print("✅ Serviço cadastrado!")
 
-            elif op == "4":
+            elif op == "5":
                 show_services()
 
-            elif op == "5":
+            elif op == "6":
                 print("\n--- Clientes ---")
                 show_clients()
                 client_id = read_int("ID do cliente: ")
@@ -138,18 +169,18 @@ def main():
                 add_appointment(client_id, service_id, professional, start_at, notes)
                 print("✅ Agendamento criado!")
 
-            elif op == "6":
+            elif op == "7":
                 show_agenda_day()
 
-            elif op == "7":
+            elif op == "8":
                 show_agenda_between()
 
-            elif op == "8":
+            elif op == "9":
                 appt_id = read_int("ID do agendamento: ")
                 cancel_appointment(appt_id)
                 print("✅ Agendamento cancelado!")
 
-            elif op == "9":
+            elif op == "10":
                 appt_id = read_int("ID do agendamento: ")
                 new_start = input("Novo início (YYYY-MM-DD HH:MM): ").strip()
                 reschedule_appointment(appt_id, new_start)
