@@ -198,6 +198,9 @@ adopted
 ads
 adsl
 adult
+atualizado
+editar
+mantém
 advance
 advanced
 advantage

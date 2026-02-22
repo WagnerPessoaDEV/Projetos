@@ -1,9 +1,10 @@
 import sqlite3
+from pathlib import Path
 
-DB_NAME = "agenda_salao.db"
+DB_PATH = Path(__file__).resolve().parent / "agenda_salao.db"
 
 def get_conn():
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
