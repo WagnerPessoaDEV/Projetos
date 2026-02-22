@@ -15,19 +15,36 @@ def read_int(prompt: str) -> int:
         except ValueError:
             print("Digite um número válido.")
 
+def wait_for_enter() -> None:
+    input("\nPressione Enter para continuar...")
+
+def print_boxed_menu(title: str, options: list[str]) -> None:
+    max_len = max([len(title)] + [len(opt) for opt in options])
+    width = max_len + 2
+    border = "+" + "-" * width + "+"
+    print("\n" + border)
+    print("| " + title.ljust(max_len) + " |")
+    print(border)
+    for opt in options:
+        print("| " + opt.ljust(max_len) + " |")
+    print(border)
+
 def menu():
-    print("\n### AGENDA TODA BELA ###\n")
-    print("1) Cadastrar cliente")
-    print("2) Listar clientes")
-    print("3) Editar cliente")
-    print("4) Cadastrar serviço")
-    print("5) Listar serviços")
-    print("6) Agendar horário")
-    print("7) Ver agenda do dia")
-    print("8) Ver agenda por período")
-    print("9) Cancelar agendamento")
-    print("10) Remarcar agendamento")
-    print("0) Sair")
+    title = "Agenda Toda Bela"
+    options = [
+        "[1] Cadastrar cliente",
+        "[2] Listar clientes",
+        "[3] Editar cliente",
+        "[4] Cadastrar servico",
+        "[5] Listar servicos",
+        "[6] Agendar horario",
+        "[7] Ver agenda do dia",
+        "[8] Ver agenda por periodo",
+        "[9] Cancelar agendamento",
+        "[10] Remarcar agendamento",
+        "[0] Sair",
+    ]
+    print_boxed_menu(title, options)
 
 def normalize_date_input(date_str: str) -> str:
     value = date_str.strip().lower()
@@ -124,7 +141,7 @@ def main():
     init_db()
     while True:
         menu()
-        op = input("Escolha: ").strip()
+        op = input("Resposta: ").strip()
 
         try:
             if op == "1":
@@ -135,12 +152,15 @@ def main():
                 notes = input("Observação (opcional): ").strip() or None
                 add_client(name, phone, notes)
                 print("✅ Cliente cadastrado!")
+                wait_for_enter()
 
             elif op == "2":
                 show_clients()
+                wait_for_enter()
 
             elif op == "3":
                 edit_client()
+                wait_for_enter()
 
             elif op == "4":
                 name = input("Nome do serviço: ").strip()
@@ -149,9 +169,11 @@ def main():
                 price = float(price_str) if price_str else 0.0
                 add_service(name, duration, price)
                 print("✅ Serviço cadastrado!")
+                wait_for_enter()
 
             elif op == "5":
                 show_services()
+                wait_for_enter()
 
             elif op == "6":
                 print("\n--- Clientes ---")
@@ -168,23 +190,28 @@ def main():
 
                 add_appointment(client_id, service_id, professional, start_at, notes)
                 print("✅ Agendamento criado!")
+                wait_for_enter()
 
             elif op == "7":
                 show_agenda_day()
+                wait_for_enter()
 
             elif op == "8":
                 show_agenda_between()
+                wait_for_enter()
 
             elif op == "9":
                 appt_id = read_int("ID do agendamento: ")
                 cancel_appointment(appt_id)
                 print("✅ Agendamento cancelado!")
+                wait_for_enter()
 
             elif op == "10":
                 appt_id = read_int("ID do agendamento: ")
                 new_start = input("Novo início (YYYY-MM-DD HH:MM): ").strip()
                 reschedule_appointment(appt_id, new_start)
                 print("✅ Agendamento remarcado!")
+                wait_for_enter()
 
             elif op == "0":
                 print("Até mais!")
@@ -192,9 +219,11 @@ def main():
 
             else:
                 print("Opção inválida.")
+                wait_for_enter()
 
         except Exception as e:
             print(f"❌ Erro: {e}")
+            wait_for_enter()
 
 if __name__ == "__main__":
     main()
