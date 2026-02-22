@@ -16,7 +16,7 @@ def read_int(prompt: str) -> int:
             print("Digite um número válido.")
 
 def menu():
-    print("\n=== AGENDA DO SALÃO ===")
+    print("\n### AGENDA TODA BELA ###\n")
     print("1) Cadastrar cliente")
     print("2) Listar clientes")
     print("3) Editar cliente")
