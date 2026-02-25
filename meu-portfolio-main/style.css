@@ -101,6 +101,10 @@ nav {
     display: block;
 }
 
+.logo-switch .logo-text {
+    color: var(--text-main);
+}
+
 .logo span { color: var(--primary); }
 .logo::after {
     content: '_';
