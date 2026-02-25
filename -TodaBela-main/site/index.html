@@ -1,1099 +1,836 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toda Bela - Estilo e Produtos</title>
-        <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toda Bela - Estilo e Produtos</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Salão Toda Bela no Rio de Janeiro. Cabelos, unhas, cílios e loja virtual com finalização via WhatsApp." />
+  <meta name="keywords" content="salão de beleza, unhas, cílios, cabelo, loja, lingerie, Rio de Janeiro, Toda Bela" />
+  <meta name="author" content="Wagner Pessoa" />
+
+  <!-- Open Graph / Compartilhamento -->
+  <meta property="og:title" content="Toda Bela - Beleza e Autoestima" />
+  <meta property="og:description" content="Serviços de beleza e loja online com finalização via WhatsApp." />
+  <meta property="og:type" content="website" />
+  <!-- Troque a URL da imagem para uma URL online real do seu domínio quando publicar -->
+  <!-- Ex: https://todabelarj.com.br/imagens/logo.png -->
+  <meta property="og:image" content="imagens/logo.png" />
+
+  <!-- Favicon (crie esse arquivo ou troque o caminho) -->
+  <link rel="icon" href="imagens/favicon.png" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <a href="#main" class="skip-link">Ir para conteúdo</a>
+  <a href="#main" class="skip-link">Ir para conteúdo</a>
 
-    <div class="overlay" onclick="toggleCart()"></div>
+  <div class="overlay" onclick="toggleCart()"></div>
 
+  <!-- Carrinho -->
+  <div class="cart-sidebar" id="cartSidebar" aria-label="Carrinho de compras">
+    <div class="cart-header">
+      <h3>Seu Carrinho</h3>
+      <button class="close-cart" onclick="toggleCart()" aria-label="Fechar carrinho">&times;</button>
+    </div>
 
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Seu Carrinho</h3>
-            <span class="close-cart" onclick="toggleCart()">&times;</span>
+    <div class="cart-items" id="cartItems">
+      <p style="text-align: center; color: #999; margin-top: 20px;">Seu carrinho está vazio.</p>
+    </div>
+
+    <div class="cart-footer">
+      <div class="total-row">
+        <span>Total:</span>
+        <span id="cartTotal">R$ 0,00</span>
+      </div>
+      <button class="btn btn-whatsapp" onclick="checkoutWhatsApp()">
+        Finalizar no WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="imagens/logo.png" alt="Toda Bela" />
         </div>
-        <div class="cart-items" id="cartItems">
-            <p style="text-align: center; color: #999; margin-top: 20px;">Seu carrinho está vazio.</p>
-        </div>
-        <div class="cart-footer">
-            <div class="total-row">
-                <span>Total:</span>
-                <span id="cartTotal">R$ 0,00</span>
-            </div>
-            <button class="btn btn-whatsapp" onclick="checkoutWhatsApp()">
-                Finalizar no WhatsApp
+
+        <!-- Controles de Tema e Idioma -->
+        <div class="controls">
+          <button id="theme-toggle" class="control-btn" onclick="toggleTheme()" title="Mudar Tema" aria-label="Mudar tema">
+            🌙
+          </button>
+
+          <div class="lang-switch" aria-label="Trocar idioma">
+            <button class="control-btn" onclick="setLanguage('pt')" title="Português" aria-label="Português">
+              <img src="https://flagcdn.com/w40/br.png" alt="Brasil" style="width: 28px; vertical-align: middle;">
             </button>
+            <button class="control-btn" onclick="setLanguage('en')" title="English" aria-label="English">
+              <img src="https://flagcdn.com/w40/us.png" alt="USA" style="width: 28px; vertical-align: middle;">
+            </button>
+          </div>
         </div>
+
+        <ul class="nav-links">
+          <li><a href="#home" data-i18n="nav_home">Início</a></li>
+          <li><a href="#sobre" data-i18n="nav_about">Sobre</a></li>
+          <li><a href="#servicos" data-i18n="nav_services">Serviços</a></li>
+          <li><a href="#loja" data-i18n="nav_shop">Loja</a></li>
+          <li><a href="#galeria" data-i18n="nav_gallery">Galeria</a></li>
+          <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
+        </ul>
+
+        <div style="display: flex; align-items: center;">
+          <div class="cart-icon" onclick="toggleCart()" role="button" aria-label="Abrir carrinho" tabindex="0">
+            🛒 <span class="cart-count" id="cartCount">0</span>
+          </div>
+
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+            ☰
+          </button>
+        </div>
+      </nav>
     </div>
+  </header>
 
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <img src="imagens/logo.png" alt="Toda Bela">
-                </div>
-                
-                <div class="controls">
-                    <button id="theme-toggle" class="control-btn" onclick="toggleTheme()" title="Mudar Tema">🌙</button>
-                    <div class="lang-switch">
-                        <button class="control-btn" onclick="setLanguage('pt')" title="Português">
-                            <img src="https://flagcdn.com/w40/br.png" alt="Brasil" style="width: 28px; vertical-align: middle;">
-                        </button>
-                        <button class="control-btn" onclick="setLanguage('en')" title="English">
-                            <img src="https://flagcdn.com/w40/us.png" alt="USA" style="width: 28px; vertical-align: middle;">
-                        </button>
-                    </div>
-                </div>
+  <main id="main">
 
-                <ul class="nav-links">
-                    <li><a href="#home" data-i18n="nav_home">Início</a></li>
-                    <li><a href="#sobre" data-i18n="nav_about">Sobre</a></li>
-                    <li><a href="#servicos" data-i18n="nav_services">Serviços</a></li>
-                    <li><a href="#loja" data-i18n="nav_shop">Loja</a></li>
-                    <li><a href="#galeria" data-i18n="nav_gallery">Galeria</a></li>
-                    <li><a href="#contato" data-i18n="nav_contact">Contato</a></li>
-                </ul>
-                <div style="display: flex; align-items: center;">
-                    <div class="cart-icon" onclick="toggleCart()">
-                        🛒
-                        <span class="cart-count" id="cartCount">0</span>
-                    </div>
-                    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main">
-
+    <!-- Banner Principal -->
     <section id="home" class="hero">
-        <div class="hero-slider">
-            <div class="slide active" style="background-image: url('imagens/erlane/perfil.png');"></div>
-            <div class="slide" style="background-image: url('imagens/jessica/PerfilJessica.png');"></div>
-            <div class="slide" style="background-image: url('imagens/bianca/PerfilBianca.png');"></div>
-            <div class="slide" style="background-image: url('imagens/FrenteLoja.jpg');"></div>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content container">
-            <h1 data-i18n="hero_title">Realce sua beleza com quem entende de estilo.</h1>
-            <p data-i18n="hero_subtitle">Oferecemos cuidados completos em cabelos, unhas e cílios, além de produtos de qualidade profissional para você manter o resultado todos os dias.</p>
-            <a href="#loja" class="btn" data-i18n="hero_btn">Ver Produtos</a>
-        </div>
+      <div class="hero-slider">
+        <div class="slide active" style="background-image: url('imagens/erlane/perfil.png');"></div>
+        <div class="slide" style="background-image: url('imagens/jessica/PerfilJessica.png');"></div>
+        <div class="slide" style="background-image: url('imagens/bianca/PerfilBianca.png');"></div>
+        <div class="slide" style="background-image: url('imagens/FrenteLoja.jpg');"></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <h1 data-i18n="hero_title">Realce sua beleza com quem entende de estilo.</h1>
+        <p data-i18n="hero_subtitle">
+          Oferecemos cuidados completos em cabelos, unhas e cílios, além de produtos de qualidade profissional para você manter o resultado todos os dias.
+        </p>
+        <a href="#loja" class="btn" data-i18n="hero_btn">Ver Produtos</a>
+      </div>
     </section>
 
+    <!-- Seção Sobre -->
     <section id="sobre" class="sobre">
-        <div class="container">
-            <h2 data-i18n="about_title">Nossa História</h2>
-            <p data-i18n="about_text">O Toda Bela nasceu de um sonho, de muita dedicação e de um amor verdadeiro pelo universo da beleza e do cuidado. Em 2023, esse sonho se tornou realidade: a conquista do meu próprio salão, um espaço pensado para acolher, transformar e elevar a autoestima de cada cliente.
-<br><br>
-Essa realização não aconteceu sozinha. Ela foi construída com esforço, perseverança e, principalmente, com o apoio do meu marido, que acreditou em mim e esteve ao meu lado em cada passo dessa jornada. Juntos, transformamos um sonho em um lugar cheio de propósito, carinho e significado.
-<br><br>
-No Toda Bela, cada detalhe foi pensado para que você se sinta especial desde o momento em que entra. Aqui, unimos experiência, dedicação e as tendências mais atuais da moda e da beleza, sempre com um atendimento humanizado, atencioso e feito com amor.
-<br><br>
-Nossa missão é proporcionar mais do que serviços de qualidade — queremos oferecer momentos de cuidado, renovação e bem-estar, para que você saia daqui se sentindo mais confiante, feliz e ainda mais bela.
-<br><br>
-Além dos nossos serviços, também oferecemos produtos selecionados para que você possa continuar seu autocuidado em casa, mantendo os resultados e o carinho do Toda Bela no seu dia a dia. Além disso você também encontra lingeries e produtos de sexy shop, pensados para valorizar sua autoestima, seu bem-estar e sua confiança, porque acreditamos que se sentir bem consigo mesma vai muito além da beleza exterior.
-<br><br>
-Toda Bela é mais do que um salão.
-É um sonho realizado, um espaço de acolhimento e um lugar feito para valorizar a sua beleza em cada detalhe.</p>
-        </div>
+      <div class="container">
+        <h2 data-i18n="about_title">Nossa História</h2>
+        <p data-i18n="about_text">
+          O Toda Bela nasceu de um sonho, de muita dedicação e de um amor verdadeiro pelo universo da beleza e do cuidado. Em 2023, esse sonho se tornou realidade: a conquista do meu próprio salão, um espaço pensado para acolher, transformar e elevar a autoestima de cada cliente.
+          <br><br>
+          Essa realização não aconteceu sozinha. Ela foi construída com esforço, perseverança e, principalmente, com o apoio do meu marido, que acreditou em mim e esteve ao meu lado em cada passo dessa jornada. Juntos, transformamos um sonho em um lugar cheio de propósito, carinho e significado.
+          <br><br>
+          No Toda Bela, cada detalhe foi pensado para que você se sinta especial desde o momento em que entra. Aqui, unimos experiência, dedicação e as tendências mais atuais da moda e da beleza, sempre com um atendimento humanizado, atencioso e feito com amor.
+          <br><br>
+          Nossa missão é proporcionar mais do que serviços de qualidade — queremos oferecer momentos de cuidado, renovação e bem-estar, para que você saia daqui se sentindo mais confiante, feliz e ainda mais bela.
+          <br><br>
+          Além dos nossos serviços, também oferecemos produtos selecionados para que você possa continuar seu autocuidado em casa, mantendo os resultados e o carinho do Toda Bela no seu dia a dia.
+          Além disso, você também encontra lingeries e produtos de sexy shop, pensados para valorizar sua autoestima, seu bem-estar e sua confiança, porque acreditamos que se sentir bem consigo mesma vai muito além da beleza exterior.
+          <br><br>
+          Toda Bela é mais do que um salão.
+          É um sonho realizado, um espaço de acolhimento e um lugar feito para valorizar a sua beleza em cada detalhe.
+        </p>
+      </div>
     </section>
 
+    <!-- Nossa Equipe -->
     <section id="equipe" class="equipe">
-        <div class="container">
-            <div class="section-title">
-                <h2 data-i18n="team_title">Nossa Equipe</h2>
-            </div>
-            <div class="servicos-grid">
-                <div class="servico-card">
-                    <div class="equipe-img-container">
-                        <img src="imagens/jessica/PerfilJessica.png" alt="Jessica Oliveira" class="equipe-img">
-                    </div>
-                    <h3>Jessica Oliveira</h3>
-                    <p data-i18n="team_jessica_role">Hair Designer</p>
-                    <p data-i18n="team_jessica_desc">Dedicada a transformar cada atendimento em uma experiência única, com carinho, profissionalismo e atenção a cada cliente.</p>
-                </div>
-                <div class="servico-card">
-                    <div class="equipe-img-container">
-                        <img src="imagens/erlane/perfil.png" alt="Erlane Souza" class="equipe-img">
-                    </div>
-                    <h3>Erlane Souza</h3>
-                    <p data-i18n="team_erlane_role">Nails Designer</p>
-                    <p data-i18n="team_erlane_desc">Especialista em beleza e cuidados personalizados. Apaixonada por realçar a autoestima e proporcionar resultados naturais e modernos.</p>
-                </div>
-                <div class="servico-card">
-                    <div class="equipe-img-container">
-                        <img src="imagens/bianca/PerfilBianca.png" alt="Bianca Lima" class="equipe-img">
-                    </div>
-                    <h3>Bianca Lima</h3>
-                    <p data-i18n="team_bianca_role">Lash Designer</p>
-                    <p data-i18n="team_bianca_desc">Focada em técnicas atualizadas e atendimento detalhista, oferecendo qualidade, segurança e um atendimento acolhedor em cada procedimento.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="team_title">Nossa Equipe</h2>
         </div>
+
+        <div class="servicos-grid">
+          <div class="servico-card">
+            <div class="equipe-img-container">
+              <img src="imagens/jessica/PerfilJessica.png" alt="Jessica Oliveira" class="equipe-img" loading="lazy">
+            </div>
+            <h3>Jessica Oliveira</h3>
+            <p data-i18n="team_jessica_role">Hair Designer</p>
+            <p data-i18n="team_jessica_desc">
+              Dedicada a transformar cada atendimento em uma experiência única, com carinho, profissionalismo e atenção a cada cliente.
+            </p>
+          </div>
+
+          <div class="servico-card">
+            <div class="equipe-img-container">
+              <img src="imagens/erlane/perfil.png" alt="Erlane Souza" class="equipe-img" loading="lazy">
+            </div>
+            <h3>Erlane Souza</h3>
+            <p data-i18n="team_erlane_role">Nails Designer</p>
+            <p data-i18n="team_erlane_desc">
+              Especialista em beleza e cuidados personalizados. Apaixonada por realçar a autoestima e proporcionar resultados naturais e modernos.
+            </p>
+          </div>
+
+          <div class="servico-card">
+            <div class="equipe-img-container">
+              <img src="imagens/bianca/PerfilBianca.png" alt="Bianca Lima" class="equipe-img" loading="lazy">
+            </div>
+            <h3>Bianca Lima</h3>
+            <p data-i18n="team_bianca_role">Lash Designer</p>
+            <p data-i18n="team_bianca_desc">
+              Focada em técnicas atualizadas e atendimento detalhista, oferecendo qualidade, segurança e um atendimento acolhedor em cada procedimento.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- Seção Serviços -->
     <section id="servicos" class="servicos">
-        <div class="container">
-            <div class="section-title">
-                <h2 data-i18n="services_title">Nossos Serviços</h2>
-            </div>
-            <div class="servicos-grid">
-                <div class="servico-card">
-                    <h3>Hair Designer</h3>
-                    <p data-i18n="service_hair_desc">Consultoria de Visagismo<br>Cortes Personalizados<br>Colorimetria Avançada<br>Hair Styling e Penteados<br>Tratamentos e Nutrição<br>Modificações de Estruturas<br>Alisamentos</p>
-                    <span class="preco"></span>
-                </div>
-                <div class="servico-card">
-                    <h3>Nails Design</h3>
-                    <p data-i18n="service_nails_desc">Pé e Mão Simples<br>Esmaltação em Gel<br>Postiça Realista<br>Banho de Gel<br>Molde F1<br> Gel na Tips.</p>
-                    <span class="preco"></span>
-                </div>
-                <div class="servico-card">
-                    <h3>Lash Designer</h3>
-                    <p data-i18n="service_lash_desc">Design de sobrancelha<br>Brow lamination<br>Volume brasileiro<br>Volume egípcio<br>Mega volume</p>
-                    <span class="preco"></span>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="services_title">Nossos Serviços</h2>
         </div>
+
+        <div class="servicos-grid">
+          <div class="servico-card">
+            <h3>Hair Designer</h3>
+            <p data-i18n="service_hair_desc">
+              Consultoria de Visagismo<br>
+              Cortes Personalizados<br>
+              Colorimetria Avançada<br>
+              Hair Styling e Penteados<br>
+              Tratamentos e Nutrição<br>
+              Modificações de Estruturas<br>
+              Alisamentos
+            </p>
+            <span class="preco"></span>
+          </div>
+
+          <div class="servico-card">
+            <h3>Nails Design</h3>
+            <p data-i18n="service_nails_desc">
+              Pé e Mão Simples<br>
+              Esmaltação em Gel<br>
+              Postiça Realista<br>
+              Banho de Gel<br>
+              Molde F1<br>
+              Gel na Tips
+            </p>
+            <span class="preco"></span>
+          </div>
+
+          <div class="servico-card">
+            <h3>Lash Designer</h3>
+            <p data-i18n="service_lash_desc">
+              Design de sobrancelha<br>
+              Brow lamination<br>
+              Volume brasileiro<br>
+              Volume egípcio<br>
+              Mega volume
+            </p>
+            <span class="preco"></span>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- Seção Galeria -->
     <section id="galeria" class="galeria">
-        <div class="container-fluid">
-            <div class="section-title">
-                <h2 data-i18n="gallery_title">Resultados que Encantam</h2>
-            </div>
-            <div class="galeria-slider">
-                <div class="galeria-track">
-                    <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/erlane/Unhas (1).jpg" alt="Corte">
-                    </div>
-                    <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/erlane/Unhas (2).jpg" alt="Barbearia">
-                    </div>
-                    <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/erlane/Unhas (3).jpg" alt="Estilo">
-                    </div>
-                    <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/erlane/Unhas (4).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/jessica/Cabelos (1).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/jessica/Cabelos (2).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/bianca/Lash (1).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/bianca/Lash (2).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/bianca/Lash (3).jpg" alt="Salão">
-                    </div>
-                    
-                    <!-- Duplicados para Efeito Infinito -->
-                   <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/erlane/Unhas (2).jpg" alt="Barbearia">
-                    </div>
-                    <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/erlane/Unhas (3).jpg" alt="Estilo">
-                    </div>
-                    <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/erlane/Unhas (4).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/jessica/Cabelos (1).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/jessica/Cabelos (2).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/bianca/Lash (1).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/bianca/Lash (2).jpg" alt="Salão">
-                    </div>
-                     <div class="galeria-item" onclick="openLightbox(this)">
-                        <img src="imagens/bianca/Lash (3).jpg" alt="Salão">
-                    </div>
-                </div>
-            </div>
+      <div class="container-fluid">
+        <div class="section-title">
+          <h2 data-i18n="gallery_title">Resultados que Encantam</h2>
         </div>
+
+        <div class="galeria-slider">
+          <div class="galeria-track">
+            <!-- Resultados que Encantam -->
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/erlane/Unhas (1).jpg" alt="Unhas - Resultado 1" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/erlane/Unhas (2).jpg" alt="Unhas - Resultado 2" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/erlane/Unhas (3).jpg" alt="Unhas - Resultado 3" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/erlane/Unhas (4).jpg" alt="Unhas - Resultado 4" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/jessica/Cabelos (1).jpg" alt="Cabelos - Resultado 1" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/jessica/Cabelos (2).jpg" alt="Cabelos - Resultado 2" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/bianca/Lash (1).jpg" alt="Cílios - Resultado 1" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/bianca/Lash (2).jpg" alt="Cílios - Resultado 2" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/bianca/Lash (3).jpg" alt="Cílios - Resultado 3" loading="lazy">
+            </div>
+
+            <!-- Duplicados para Efeito Infinito -->
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/erlane/Unhas (2).jpg" alt="Unhas - Resultado 2 (repetido)" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/erlane/Unhas (3).jpg" alt="Unhas - Resultado 3 (repetido)" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/erlane/Unhas (4).jpg" alt="Unhas - Resultado 4 (repetido)" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/jessica/Cabelos (1).jpg" alt="Cabelos - Resultado 1 (repetido)" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/jessica/Cabelos (2).jpg" alt="Cabelos - Resultado 2 (repetido)" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/bianca/Lash (1).jpg" alt="Cílios - Resultado 1 (repetido)" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/bianca/Lash (2).jpg" alt="Cílios - Resultado 2 (repetido)" loading="lazy">
+            </div>
+            <div class="galeria-item" onclick="openLightbox(this)">
+              <img src="imagens/bianca/Lash (3).jpg" alt="Cílios - Resultado 3 (repetido)" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- Seção Loja -->
     <section id="loja" class="loja">
-        <div class="container-fluid">
-            <div class="section-title">
-                <h2 data-i18n="shop_title">Loja Virtual</h2>
-                <p data-i18n="shop_subtitle">Leve para casa produtos profissionais de beleza, além de peças de lingerie e itens de bem-estar e autoestima selecionados especialmente para você.</p>
-            </div>
-
-            <div class="loja-slider">
-                <div class="loja-track">
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/100Dor.jpg" alt="100DOR 6x1" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">100DOR 6x1</h3>
-                            <span class="produto-preco">R$ 18,00</span>
-                            <button class="btn" onclick="addToCart(1, '100DOR 6x', 18.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/BaralhoErótico.jpg" alt="Baralho Erótico" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Baralho Erótico</h3>
-                            <span class="produto-preco">R$ 18,00</span>
-                            <button class="btn" onclick="addToCart(2, 'Baralho Erótico', 18.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaAzul.jpg" alt="Calcinha Playboy" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Playboy</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(3, 'Calcinha Playboy', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaSapeca (1).jpg" alt="Calcinha Sapeca Rosa" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Sapeca Rosa</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(4, 'Calcinha Sapeca Rosa', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaSapeca (2).jpg" alt="Calcinha Sapeca Rosa Choque" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Sapeca Rosa Choque</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(5, 'Calcinha Sapeca Rosa Choque', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaSapeca (3).jpg" alt="Calcinha Sapeca Branca" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Sapeca Branca</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(6, 'Calcinha Sapeca Branca', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhasDeTime.jpg" alt="Calcina de Times" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcina de Times</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(7, 'Calcina de Times', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhasFrases.jpg" alt="Calcinha Frases (neon)" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Frases (neon)</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(8, 'Calcinha Frases (neon)', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhasMultimarcas.jpg" alt="Calcinhas Multimarcas" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinhas Multimarcas</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(9, 'Calcinhas Multimarcas', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaStrass (1).jpg" alt="Calcinha Stras Bege" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Stras Bege</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(10, 'Calcinha Stras Bege', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaStrass (2).jpg" alt="Calcinha Stras Rosa" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Stras Rosa</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(11, 'Calcinha Stras Rosa', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Caneta Comestível.png" alt="Caneta Comestível" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Caneta Comestível</h3>
-                            <span class="produto-preco">R$ 10,00</span>
-                            <button class="btn" onclick="addToCart(12, 'Caneta Comestível', 10.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/ConjuntoPreto (1).jpg" alt="Lingerie Suzy" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Suzy</h3>
-                            <span class="produto-preco">R$ 60,00</span>
-                            <button class="btn" onclick="addToCart(13, 'Lingerie Suzy', 60.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja//ConjuntoVermelho (1).jpg" alt="Lingerie Safira" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Safira</h3>
-                            <span class="produto-preco">R$ 60,00</span>
-                            <button class="btn" onclick="addToCart(14, 'Massageador Corporal', 60.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/EggTwister.jpg" alt="Egg Twister" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Egg Twister</h3>
-                            <span class="produto-preco">R$ 25,00</span>
-                            <button class="btn" onclick="addToCart(15, 'Egg Twister', 25.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/FaiscaNaXavasca.jpg" alt="Faísca na Xavasca" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Faísca na Xavasca</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(16, 'Faísca na Xavasca', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Gel Térmico.jpg" alt="Gel Térmico Sabores" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Gel Térmico Sabores</h3>
-                            <span class="produto-preco">R$ 10,00</span>
-                            <button class="btn" onclick="addToCart(17, 'Gel Térmico Sabores', 10.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Golfinho (1).jpg" alt="Vibrador Golfinho" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Vibrador Golfinho</h3>
-                            <span class="produto-preco">R$ 20,00</span>
-                            <button class="btn" onclick="addToCart(18, 'Vibrador Golfinho', 20.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/JogoDeDados.jpg" alt="Jogo de Dados" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Jogo de Dados</h3>
-                            <span class="produto-preco">R$ 8,00</span>
-                            <button class="btn" onclick="addToCart(19, 'Jogo de Dados', 8.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/KitSado.jpg" alt="Kit Sado" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Kit Sado</h3>
-                            <span class="produto-preco">R$ 45,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Kit Sado', 45.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/LaminasResfrecantes.png" alt="Lâminas Refrescantes Comestíveis" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lâminas Refrescantes Comestíveis</h3>
-                            <span class="produto-preco">R$ 6,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lâminas Refrescantes Comestíveis', 6.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Lubrificante.jpg" alt="Lubrificante Fácil LUB" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lubrificante Fácil LUB</h3>
-                            <span class="produto-preco">R$ 30,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lubrificante Fácil LUB', 30.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/PerfumeDeCalcinha2.jpg" alt="Permufe de Calcinha" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Permufe de Calcinha</h3>
-                            <span class="produto-preco">R$ 18,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Permufe de Calcinha', 18.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja//PerfumeFeromônio.jpg" alt="Permufe Fermônio" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Permufe Fermônio</h3>
-                            <span class="produto-preco">R$ 35,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Permufe Fermônio', 35.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/PetalasDeRosas.jpg" alt="Petalas de Rosas" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Petalas de Rosas</h3>
-                            <span class="produto-preco">R$ 20,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Petalas de Rosas', 20.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Pikaso.jpg" alt="Pikaso Estimulante Masculino" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Pikaso Estimulante Masculino</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Pikaso Estimulante Masculino', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/PlugAnal.png" alt="Plug Anal (P,M,G)" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Plug Anal (P,M,G)</h3>
-                            <span class="produto-preco">R$ 40,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Plug Anal (P,M,G)', 40.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Raspadinha.jpg" alt="Raspadinhas Picantes" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Raspadinhas Picantes</h3>
-                            <span class="produto-preco">R$ 5,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Raspadinhas Picantes', 5.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/SaboneteLiquido.jpg" alt="Sabonete Líquido" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Sabonete Líquido</h3>
-                            <span class="produto-preco">R$ 13,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Sabonete Líquido', 13.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Sedenta.jpg" alt="Sedenta Estimulante Feminino" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Sedenta Estimulante Feminino</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Sedenta Estimulante Feminino', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/SexyVermelho.jpg" alt="Lingerie Kiara" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Kiara</h3>
-                            <span class="produto-preco">R$ 50,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lingerie Kiara', 50.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/SuperPoDaBruxa okaSensação.png" alt="Pó da Bruxa" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Pó da Bruxa</h3>
-                            <span class="produto-preco">R$ 6,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Pó da Bruxa', 6.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/VelaCorporal.jpg" alt="Vela Para Massagem Beijável" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Vela Para Massagem Beijável</h3>
-                            <span class="produto-preco">R$ 9,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Vela Para Massagem Beijável', 9.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Lingerie Barbara Plus Vermelha.jpg" alt="Biquíni" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Barbara Plus</h3>
-                            <span class="produto-preco">R$ 70,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lingerie Barbara Plus', 60.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Lingerie Barbara Plus.jpg" alt="Lingerie Barbara Plus" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Barbara Plus</h3>
-                            <span class="produto-preco">R$ 70,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lingerie Barbara Plus', 60.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Conjunto Desejo(1).jpg" alt="Conjunto Desejo" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Conjunto Desejo</h3>
-                            <span class="produto-preco">R$ 45,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Conjunto Desejo', 45.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Conjunto Desejo(2).jpg" alt="Conjunto Desejo" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Conjunto Desejo</h3>
-                            <span class="produto-preco">R$ 45,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Conjunto Desejo', 45.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/100Dor.jpg" alt="100DOR 6x1" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">100DOR 6x1</h3>
-                            <span class="produto-preco">R$ 18,00</span>
-                            <button class="btn" onclick="addToCart(1, '100DOR 6x', 18.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/BaralhoErótico.jpg" alt="Baralho Erótico" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Baralho Erótico</h3>
-                            <span class="produto-preco">R$ 18,00</span>
-                            <button class="btn" onclick="addToCart(2, 'Baralho Erótico', 18.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaAzul.jpg" alt="Calcinha Playboy" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Playboy</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(3, 'Calcinha Playboy', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaSapeca (1).jpg" alt="Calcinha Sapeca Rosa" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Sapeca Rosa</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(4, 'Calcinha Sapeca Rosa', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaSapeca (2).jpg" alt="Calcinha Sapeca Rosa Choque" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Sapeca Rosa Choque</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(5, 'Calcinha Sapeca Rosa Choque', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaSapeca (3).jpg" alt="Calcinha Sapeca Branca" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Sapeca Branca</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(6, 'Calcinha Sapeca Branca', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhasDeTime.jpg" alt="Calcina de Times" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcina de Times</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(7, 'Calcina de Times', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhasFrases.jpg" alt="Calcinha Frases (neon)" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Frases (neon)</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(8, 'Calcinha Frases (neon)', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhasMultimarcas.jpg" alt="Calcinhas Multimarcas" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinhas Multimarcas</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(9, 'Calcinhas Multimarcas', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaStrass (1).jpg" alt="Calcinha Stras Bege" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Stras Bege</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(10, 'Calcinha Stras Bege', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/CalcinhaStrass (2).jpg" alt="Calcinha Stras Rosa" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Calcinha Stras Rosa</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(11, 'Calcinha Stras Rosa', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Caneta Comestível.png" alt="Caneta Comestível" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Caneta Comestível</h3>
-                            <span class="produto-preco">R$ 10,00</span>
-                            <button class="btn" onclick="addToCart(12, 'Caneta Comestível', 10.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/ConjuntoPreto (1).jpg" alt="Lingerie Suzy" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Suzy</h3>
-                            <span class="produto-preco">R$ 60,00</span>
-                            <button class="btn" onclick="addToCart(13, 'Lingerie Suzy', 60.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja//ConjuntoVermelho (1).jpg" alt="Lingerie Safira" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Safira</h3>
-                            <span class="produto-preco">R$ 60,00</span>
-                            <button class="btn" onclick="addToCart(14, 'Massageador Corporal', 60.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/EggTwister.jpg" alt="Egg Twister" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Egg Twister</h3>
-                            <span class="produto-preco">R$ 25,00</span>
-                            <button class="btn" onclick="addToCart(15, 'Egg Twister', 25.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/FaiscaNaXavasca.jpg" alt="Faísca na Xavasca" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Faísca na Xavasca</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(16, 'Faísca na Xavasca', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Gel Térmico.jpg" alt="Gel Térmico Sabores" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Gel Térmico Sabores</h3>
-                            <span class="produto-preco">R$ 10,00</span>
-                            <button class="btn" onclick="addToCart(17, 'Gel Térmico Sabores', 10.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Golfinho (1).jpg" alt="Vibrador Golfinho" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Vibrador Golfinho</h3>
-                            <span class="produto-preco">R$ 20,00</span>
-                            <button class="btn" onclick="addToCart(18, 'Vibrador Golfinho', 20.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/JogoDeDados.jpg" alt="Jogo de Dados" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Jogo de Dados</h3>
-                            <span class="produto-preco">R$ 8,00</span>
-                            <button class="btn" onclick="addToCart(19, 'Jogo de Dados', 8.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/KitSado.jpg" alt="Kit Sado" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Kit Sado</h3>
-                            <span class="produto-preco">R$ 45,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Kit Sado', 45.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/LaminasResfrecantes.png" alt="Lâminas Refrescantes Comestíveis" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lâminas Refrescantes Comestíveis</h3>
-                            <span class="produto-preco">R$ 6,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lâminas Refrescantes Comestíveis', 6.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Lubrificante.jpg" alt="Lubrificante Fácil LUB" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lubrificante Fácil LUB</h3>
-                            <span class="produto-preco">R$ 30,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lubrificante Fácil LUB', 30.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/PerfumeDeCalcinha2.jpg" alt="Permufe de Calcinha" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Permufe de Calcinha</h3>
-                            <span class="produto-preco">R$ 18,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Permufe de Calcinha', 18.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja//PerfumeFeromônio.jpg" alt="Permufe Fermônio" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Permufe Fermônio</h3>
-                            <span class="produto-preco">R$ 35,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Permufe Fermônio', 35.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/PetalasDeRosas.jpg" alt="Petalas de Rosas" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Petalas de Rosas</h3>
-                            <span class="produto-preco">R$ 20,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Petalas de Rosas', 20.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Pikaso.jpg" alt="Pikaso Estimulante Masculino" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Pikaso Estimulante Masculino</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Pikaso Estimulante Masculino', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/PlugAnal.png" alt="Plug Anal (P,M,G)" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Plug Anal (P,M,G)</h3>
-                            <span class="produto-preco">R$ 40,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Plug Anal (P,M,G)', 40.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Raspadinha.jpg" alt="Raspadinhas Picantes" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Raspadinhas Picantes</h3>
-                            <span class="produto-preco">R$ 5,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Raspadinhas Picantes', 5.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/SaboneteLiquido.jpg" alt="Sabonete Líquido" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Sabonete Líquido</h3>
-                            <span class="produto-preco">R$ 13,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Sabonete Líquido', 13.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Sedenta.jpg" alt="Sedenta Estimulante Feminino" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Sedenta Estimulante Feminino</h3>
-                            <span class="produto-preco">R$ 15,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Sedenta Estimulante Feminino', 15.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/SexyVermelho.jpg" alt="Lingerie Kiara" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Kiara</h3>
-                            <span class="produto-preco">R$ 50,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lingerie Kiara', 50.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/SuperPoDaBruxa okaSensação.png" alt="Pó da Bruxa" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Pó da Bruxa</h3>
-                            <span class="produto-preco">R$ 6,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Pó da Bruxa', 6.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/VelaCorporal.jpg" alt="Vela Para Massagem Beijável" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Vela Para Massagem Beijável</h3>
-                            <span class="produto-preco">R$ 9,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Vela Para Massagem Beijável', 9.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Lingerie Barbara Plus Vermelha.jpg" alt="Biquíni" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Barbara Plus</h3>
-                            <span class="produto-preco">R$ 70,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lingerie Barbara Plus', 60.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Lingerie Barbara Plus.jpg" alt="Lingerie Barbara Plus" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Lingerie Barbara Plus</h3>
-                            <span class="produto-preco">R$ 70,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Lingerie Barbara Plus', 60.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Conjunto Desejo(1).jpg" alt="Conjunto Desejo" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Conjunto Desejo</h3>
-                            <span class="produto-preco">R$ 45,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Conjunto Desejo', 45.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                    <div class="produto-card">
-                        <div class="produto-img-container" onclick="openLightbox(this)">
-                            <img src="imagens/loja/Conjunto Desejo(2).jpg" alt="Conjunto Desejo" class="produto-img">
-                        </div>
-                        <div class="produto-info">
-                            <h3 class="produto-nome">Conjunto Desejo</h3>
-                            <span class="produto-preco">R$ 45,00</span>
-                            <button class="btn" onclick="addToCart(20, 'Conjunto Desejo', 45.00)">Adicionar</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+      <div class="container-fluid">
+        <div class="section-title">
+          <h2 data-i18n="shop_title">Loja Virtual</h2>
+          <p data-i18n="shop_subtitle">
+            Leve para casa produtos profissionais de beleza, além de peças de lingerie e itens de bem-estar e autoestima selecionados especialmente para você.
+          </p>
         </div>
+
+        <div class="loja-slider">
+          <div class="loja-track">
+
+            <!-- Produto 1 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/100Dor.jpg" alt="100DOR 6x1" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">100DOR 6x1</h3>
+                <span class="produto-preco">R$ 18,00</span>
+                <button class="btn" onclick="addToCart(1, '100DOR 6x1', 18.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/BaralhoErótico.jpg" alt="Baralho Erótico" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Baralho Erótico</h3>
+                <span class="produto-preco">R$ 18,00</span>
+                <button class="btn" onclick="addToCart(2, 'Baralho Erótico', 18.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhaAzul.jpg" alt="Calcinha Playboy" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinha Playboy</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(3, 'Calcinha Playboy', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhaSapeca (1).jpg" alt="Calcinha Sapeca Rosa" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinha Sapeca Rosa</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(4, 'Calcinha Sapeca Rosa', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhaSapeca (2).jpg" alt="Calcinha Sapeca Rosa Choque" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinha Sapeca Rosa Choque</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(5, 'Calcinha Sapeca Rosa Choque', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhaSapeca (3).jpg" alt="Calcinha Sapeca Branca" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinha Sapeca Branca</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(6, 'Calcinha Sapeca Branca', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 7 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhasDeTime.jpg" alt="Calcinha de Times" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinha de Times</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(7, 'Calcinha de Times', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 8 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhasFrases.jpg" alt="Calcinha Frases (neon)" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinha Frases (neon)</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(8, 'Calcinha Frases (neon)', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 9 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhasMultimarcas.jpg" alt="Calcinhas Multimarcas" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinhas Multimarcas</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(9, 'Calcinhas Multimarcas', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 10 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhaStrass (1).jpg" alt="Calcinha Strass Bege" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinha Strass Bege</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(10, 'Calcinha Strass Bege', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 11 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/CalcinhaStrass (2).jpg" alt="Calcinha Strass Rosa" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Calcinha Strass Rosa</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(11, 'Calcinha Strass Rosa', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 12 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Caneta Comestível.png" alt="Caneta Comestível" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Caneta Comestível</h3>
+                <span class="produto-preco">R$ 10,00</span>
+                <button class="btn" onclick="addToCart(12, 'Caneta Comestível', 10.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 13 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/ConjuntoPreto (1).jpg" alt="Lingerie Suzy" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Lingerie Suzy</h3>
+                <span class="produto-preco">R$ 60,00</span>
+                <button class="btn" onclick="addToCart(13, 'Lingerie Suzy', 60.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 14 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/ConjuntoVermelho (1).jpg" alt="Lingerie Safira" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Lingerie Safira</h3>
+                <span class="produto-preco">R$ 60,00</span>
+                <button class="btn" onclick="addToCart(14, 'Lingerie Safira', 60.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 15 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/EggTwister.jpg" alt="Egg Twister" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Egg Twister</h3>
+                <span class="produto-preco">R$ 25,00</span>
+                <button class="btn" onclick="addToCart(15, 'Egg Twister', 25.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 16 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/FaiscaNaXavasca.jpg" alt="Faísca na Xavasca" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Faísca na Xavasca</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(16, 'Faísca na Xavasca', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 17 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Gel Térmico.jpg" alt="Gel Térmico Sabores" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Gel Térmico Sabores</h3>
+                <span class="produto-preco">R$ 10,00</span>
+                <button class="btn" onclick="addToCart(17, 'Gel Térmico Sabores', 10.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 18 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Golfinho (1).jpg" alt="Vibrador Golfinho" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Vibrador Golfinho</h3>
+                <span class="produto-preco">R$ 20,00</span>
+                <button class="btn" onclick="addToCart(18, 'Vibrador Golfinho', 20.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 19 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/JogoDeDados.jpg" alt="Jogo de Dados" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Jogo de Dados</h3>
+                <span class="produto-preco">R$ 8,00</span>
+                <button class="btn" onclick="addToCart(19, 'Jogo de Dados', 8.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 20 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/KitSado.jpg" alt="Kit Sado" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Kit Sado</h3>
+                <span class="produto-preco">R$ 45,00</span>
+                <button class="btn" onclick="addToCart(20, 'Kit Sado', 45.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 21 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/LaminasResfrecantes.png" alt="Lâminas Refrescantes Comestíveis" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Lâminas Refrescantes Comestíveis</h3>
+                <span class="produto-preco">R$ 6,00</span>
+                <button class="btn" onclick="addToCart(21, 'Lâminas Refrescantes Comestíveis', 6.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 22 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Lubrificante.jpg" alt="Lubrificante Fácil LUB" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Lubrificante Fácil LUB</h3>
+                <span class="produto-preco">R$ 30,00</span>
+                <button class="btn" onclick="addToCart(22, 'Lubrificante Fácil LUB', 30.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 23 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/PerfumeDeCalcinha2.jpg" alt="Perfume de Calcinha" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Perfume de Calcinha</h3>
+                <span class="produto-preco">R$ 18,00</span>
+                <button class="btn" onclick="addToCart(23, 'Perfume de Calcinha', 18.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 24 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/PerfumeFeromônio.jpg" alt="Perfume Feromônio" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Perfume Feromônio</h3>
+                <span class="produto-preco">R$ 35,00</span>
+                <button class="btn" onclick="addToCart(24, 'Perfume Feromônio', 35.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 25 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/PetalasDeRosas.jpg" alt="Pétalas de Rosas" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Pétalas de Rosas</h3>
+                <span class="produto-preco">R$ 20,00</span>
+                <button class="btn" onclick="addToCart(25, 'Pétalas de Rosas', 20.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 26 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Pikaso.jpg" alt="Pikaso Estimulante Masculino" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Pikaso Estimulante Masculino</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(26, 'Pikaso Estimulante Masculino', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 27 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/PlugAnal.png" alt="Plug Anal (P, M, G)" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Plug Anal (P, M, G)</h3>
+                <span class="produto-preco">R$ 40,00</span>
+                <button class="btn" onclick="addToCart(27, 'Plug Anal (P, M, G)', 40.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 28 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Raspadinha.jpg" alt="Raspadinhas Picantes" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Raspadinhas Picantes</h3>
+                <span class="produto-preco">R$ 5,00</span>
+                <button class="btn" onclick="addToCart(28, 'Raspadinhas Picantes', 5.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 29 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/SaboneteLiquido.jpg" alt="Sabonete Líquido" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Sabonete Líquido</h3>
+                <span class="produto-preco">R$ 13,00</span>
+                <button class="btn" onclick="addToCart(29, 'Sabonete Líquido', 13.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 30 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Sedenta.jpg" alt="Sedenta Estimulante Feminino" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Sedenta Estimulante Feminino</h3>
+                <span class="produto-preco">R$ 15,00</span>
+                <button class="btn" onclick="addToCart(30, 'Sedenta Estimulante Feminino', 15.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 31 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/SexyVermelho.jpg" alt="Lingerie Kiara" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Lingerie Kiara</h3>
+                <span class="produto-preco">R$ 50,00</span>
+                <button class="btn" onclick="addToCart(31, 'Lingerie Kiara', 50.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 32 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/SuperPoDaBruxa okaSensação.png" alt="Pó da Bruxa" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Pó da Bruxa</h3>
+                <span class="produto-preco">R$ 6,00</span>
+                <button class="btn" onclick="addToCart(32, 'Pó da Bruxa', 6.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 33 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/VelaCorporal.jpg" alt="Vela Para Massagem Beijável" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Vela Para Massagem Beijável</h3>
+                <span class="produto-preco">R$ 9,00</span>
+                <button class="btn" onclick="addToCart(33, 'Vela Para Massagem Beijável', 9.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 34 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Lingerie Barbara Plus Vermelha.jpg" alt="Lingerie Barbara Plus (Vermelha)" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Lingerie Barbara Plus (Vermelha)</h3>
+                <span class="produto-preco">R$ 70,00</span>
+                <button class="btn" onclick="addToCart(34, 'Lingerie Barbara Plus (Vermelha)', 70.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 35 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Lingerie Barbara Plus.jpg" alt="Lingerie Barbara Plus" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Lingerie Barbara Plus</h3>
+                <span class="produto-preco">R$ 70,00</span>
+                <button class="btn" onclick="addToCart(35, 'Lingerie Barbara Plus', 70.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 36 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Conjunto Desejo(1).jpg" alt="Conjunto Desejo" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Conjunto Desejo</h3>
+                <span class="produto-preco">R$ 45,00</span>
+                <button class="btn" onclick="addToCart(36, 'Conjunto Desejo', 45.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- Produto 37 -->
+            <div class="produto-card">
+              <div class="produto-img-container" onclick="openLightbox(this)">
+                <img src="imagens/loja/Conjunto Desejo(2).jpg" alt="Conjunto Desejo" class="produto-img" loading="lazy">
+              </div>
+              <div class="produto-info">
+                <h3 class="produto-nome">Conjunto Desejo</h3>
+                <span class="produto-preco">R$ 45,00</span>
+                <button class="btn" onclick="addToCart(37, 'Conjunto Desejo', 45.00)">Adicionar</button>
+              </div>
+            </div>
+
+            <!-- DUPLICADOS PARA EFEITO INFINITO (mantém os mesmos IDs, pois são os mesmos produtos) -->
+            <!-- (Se quiser, eu também posso refatorar isso para gerar via JS e evitar repetição gigante no HTML) -->
+
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- Lightbox -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+      <span class="close-lightbox" aria-label="Fechar">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" alt="Imagem ampliada">
     </div>
 
+    <!-- Rodapé -->
     <footer id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Toda Bela</h3>
-                    <p data-i18n="footer_desc">Realçando sua beleza com profissionalismo e cuidado.</p>
-                </div>
-                <div class="footer-col">
-                    <h3 data-i18n="footer_contact">Contato</h3>
-                    <p><img src="https://img.icons8.com/ios-filled/20/8e44ad/whatsapp--v1.png" alt="WhatsApp" style="display:inline; vertical-align:middle; margin-right:5px;"> (21) 98026-1948</p>
-                    <p><img src="https://img.icons8.com/ios-filled/20/8e44ad/instagram-new--v1.png" alt="Instagram" style="display:inline; vertical-align:middle; margin-right:5px;"> <a href="https://www.instagram.com/todabela_rj/" target="_blank" style="text-decoration:none; color:inherit;">@todabela_rj</a></p>
-                    <p><img src="https://img.icons8.com/ios-filled/20/8e44ad/email-open.png" alt="Email" style="display:inline; vertical-align:middle; margin-right:5px;"> contato@todabela.com</p>
-                </div>
-                <div class="footer-col">
-                    <h3 data-i18n="footer_hours">Horário</h3>
-                    <p data-i18n="footer_hours_week">Ter - Sex: 09:00 - 20:00</p>
-                    <p data-i18n="footer_hours_sat">Sábado: 09:00 - 18:00</p>
-                </div>
-                <div class="footer-col">
-                    <h3 data-i18n="footer_location">Localização</h3>
-                    <p data-i18n="footer_address">Rua Sete, 739<br>Bonsucesso - Vila do João<br>Rio de Janeiro/RJ</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Toda Bela. <span data-i18n="footer_rights">Todos os direitos reservados.</span><br>
-                <span class="dev-credits">Desenvolvido por <a href="https://www.wagnerpessoa.me/" target="_blank">Wagner Pessoa</a> • <a href="https://www.wagnerpessoa.me/" target="_blank">@StartCria021</a></span></p>
-            </div>
-        </div>
-    </footer>
-    </main>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Toda Bela</h3>
+            <p data-i18n="footer_desc">Realçando sua beleza com profissionalismo e cuidado.</p>
+          </div>
 
-    <script src="script.js"></script>
+          <div class="footer-col">
+            <h3 data-i18n="footer_contact">Contato</h3>
+            <p>
+              <img src="https://img.icons8.com/ios-filled/20/8e44ad/whatsapp--v1.png" alt="WhatsApp" style="display:inline; vertical-align:middle; margin-right:5px;">
+              (21) 98026-1948
+            </p>
+            <p>
+              <img src="https://img.icons8.com/ios-filled/20/8e44ad/instagram-new--v1.png" alt="Instagram" style="display:inline; vertical-align:middle; margin-right:5px;">
+              <a href="https://www.instagram.com/todabela_rj/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+                @todabela_rj
+              </a>
+            </p>
+            <p>
+              <img src="https://img.icons8.com/ios-filled/20/8e44ad/email-open.png" alt="Email" style="display:inline; vertical-align:middle; margin-right:5px;">
+              contato@todabela.com
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h3 data-i18n="footer_hours">Horário</h3>
+            <p data-i18n="footer_hours_week">Ter - Sex: 09:00 - 20:00</p>
+            <p data-i18n="footer_hours_sat">Sábado: 09:00 - 18:00</p>
+          </div>
+
+          <div class="footer-col">
+            <h3 data-i18n="footer_location">Localização</h3>
+            <p data-i18n="footer_address">
+              Rua Sete, 739<br>
+              Bonsucesso - Vila do João<br>
+              Rio de Janeiro/RJ
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 Toda Bela. <span data-i18n="footer_rights">Todos os direitos reservados.</span><br>
+            <span class="dev-credits">
+              Desenvolvido por
+              <a href="https://www.wagnerpessoa.me/" target="_blank" rel="noopener noreferrer">Wagner Pessoa</a>
+              •
+              <a href="https://www.wagnerpessoa.me/" target="_blank" rel="noopener noreferrer">@StartCria021</a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
-

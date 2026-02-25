@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wagner Pessoa | Front-End Developer</title>
+    
+    <!-- Google Fonts and FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated Background (Blobs) -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <header>
+        <nav>
+            <div class="logo">&lt;wagner<span>pessoa.me</span>/&gt;</div>
+            <ul class="nav-links" id="site-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+                <a href="index.html" class="lang-link" title="Portuguese">🇧🇷 PT</a>
+                <a href="index_en.html" class="lang-link" title="English" aria-current="page">🇺🇸 EN</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <div class="hero-text reveal">
+                    <div class="hero-intro">
+                        <h2>Hi, I'm</h2>
+                        <div class="logo hero-logo">&lt;Wagner<span>Pessoa</span>/&gt;</div>
+                        <h2>a</h2>
+                    </div>
+                    <h1>Developer <span id="typewriter"></span><span class="typing-cursor"></span></h1>
+                    <p>Student of Systems Analysis and Development. I turn coffee into code and ideas into modern interfaces.</p>
+                    <div class="btn-group">
+                        <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+                        <a href="assets/curriculo.pdf" class="btn btn-primary download-cv" download>Download resume <i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+
+                <div class="hero-img-wrapper reveal">
+                    <img src="imagens/WagnerPerfil.png" alt="Avatar" class="hero-img">
+                    
+                    <!-- Floating code cards -->
+                    <div class="code-card c1">
+                        <span style="color:var(--secondary)">const</span> dev = {<br>
+                        &nbsp;&nbsp;title: <span style="color:#f1fa8c">"<span class="glow-text">Developer</span>"</span>,<br>
+                        &nbsp;&nbsp;stack: [<span style="color:#f1fa8c">'JS'</span>, <span style="color:#f1fa8c">'html'</span>],<br>
+                        &nbsp;&nbsp;status: <span style="color:#50fa7b">"🚀Learning"</span><br>
+                        };
+                    </div>
+                    <div class="code-card c2">
+                        <span style="color:#8be9fd">function</span> createFuture() {<br>
+                        &nbsp;&nbsp;<span style="color:var(--secondary)">return</span> <span style="color:#f1fa8c">"Success"</span>;<br>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="section-header reveal" data-text="ABOUT">
+                <h2>About</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card reveal">
+                    <h3>Who I am</h3>
+                    <p>Front-end developer in training, passionate about creating modern, fast, and intuitive interfaces.<br><br>
+Currently studying Systems Analysis and Development and building experience by developing real projects published on the web.<br><br>
+I have already created complete websites for local businesses, including institutional pages and online stores, applying good practices in responsiveness, performance, and usability.<br><br>
+I focus on clean code, functional design, and digital experiences that truly generate value.<br><br>
+I am looking for my first opportunity in the area to evolve, contribute to real projects, and grow as a developer.</p>
+                    <div class="about-highlights">
+                        <div class="about-pill"><i class="fas fa-code"></i><span>Front-end & UI</span></div>
+                        <div class="about-pill"><i class="fas fa-bolt"></i><span>Performance & SEO</span></div>
+                        <div class="about-pill"><i class="fas fa-mobile-alt"></i><span>Responsive design</span></div>
+                        <div class="about-pill"><i class="fas fa-pen-nib"></i><span>Visual identity</span></div>
+                    </div>
+                </div>
+                <div class="about-card about-stats reveal">
+                    <div class="stat">
+                        <span class="stat-number">UI</span>
+                        <span class="stat-label">Interfaces that communicate</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">DX</span>
+                        <span class="stat-label">Clean, scalable code</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">SEO</span>
+                        <span class="stat-label">Organic visibility</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Perf</span>
+                        <span class="stat-label">Fast loading</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header reveal" data-text="SKILLS">
+                <h2>Technologies</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <img src="imagens/html-5.png" alt="HTML5" class="skill-img">
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill-card reveal">
+                    <img src="imagens/css-3.png" alt="CSS3" class="skill-img">
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill-card reveal">
+                    <img src="imagens/js.png" alt="JavaScript" class="skill-img">
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card reveal">
+                    <img src="imagens/github.png" alt="Github" class="skill-img">
+                    <h3>Github</h3>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="section-header reveal" data-text="SERVICES">
+                <h2>Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <img src="imagens/rede.png" alt="Professional Websites" class="service-img">
+                    </div>
+                    <h3>Professional Website Development</h3>
+                    <p>Modern, responsive and optimized websites that represent your brand with professionalism.</p>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <img src="imagens/E-comerce.png" alt="E-commerce" class="service-img">
+                    </div>
+                    <h3>E-commerce Stores</h3>
+                    <p>Full e-commerce platforms with cart, payment integrations and product management.</p>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <img src="imagens/landing-page.png" alt="Landing Pages" class="service-img">
+                    </div>
+                    <h3>Landing Pages</h3>
+                    <p>Conversion-focused landing pages with strategic design and clear calls to action.</p>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <img src="imagens/Redesign de Sites.png" alt="Redesign" class="service-img">
+                    </div>
+                    <h3>Website Redesign</h3>
+                    <p>Modernization of older sites improving visuals, usability and performance.</p>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <img src="imagens/Manutenção e Atualização.png" alt="Maintenance" class="service-img">
+                    </div>
+                    <h3>Maintenance & Updates</h3>
+                    <p>Continual support, security updates and bug fixes to keep your site running smoothly.</p>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <img src="imagens/marca-visual.png" alt="Brand Identity" class="service-img">
+                    </div>
+                    <h3>Brand Identity</h3>
+                    <p>Logo, color palette, typography and layout to create a consistent brand image.</p>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <img src="imagens/otimizacao-para-dispositivos-moveis.png" alt="Mobile Optimization" class="service-img">
+                    </div>
+                    <h3>Mobile Optimization</h3>
+                    <p>Responsive design ensuring great experience across smartphones, tablets and desktop.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header reveal" data-text="WORK">
+                <h2>Recent Projects</h2>
+            </div>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card reveal" data-url="https://example.com/toda-bela" data-year="2026" data-role="Frontend & UI" data-category="E-commerce" data-details="• Fully responsive layout (desktop, tablet, mobile)
+• Integrated online store for product sales
+• Portfolio gallery to showcase real results
+• Institutional sections (About, Services, Team)
+• Quick contact buttons via WhatsApp and social media">
+                    <div class="card-inner">
+                        <div class="project-img-container">
+                            <img src="imagens/todabela (2).png" alt="Project 1" class="project-img">
+                        </div>
+                        <h3>Toda Bela</h3>
+                        <p style="margin: 10px 0; color: var(--text-muted);">Complete website for a beauty salon focused on customer experience...</p>
+                        <div class="tech-tags">
+                            <span>HTML</span><span>CSS</span><span>JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal" data-url="https://example.com/dashboard-admin" data-year="2026" data-role="Full Stack" data-details="The project was developed focusing on:
+• Modern professional design
+• Fully responsive layout (desktop, tablet, mobile)
+• Clear presentation of digital services
+• Integration with WhatsApp, Instagram and email for fast support
+• Structure optimized for better user experience and conversion">
+                    <div class="card-inner">
+                        <div class="project-img-container">
+                            <img src="https://picsum.photos/seed/appdashboard/600/400" alt="Project 2" class="project-img">
+                        </div>
+                        <h3>StarCria</h3>
+                        <p style="margin: 10px 0; color: var(--text-muted);">Corporate website development for a technology company offering digital design, systems and apps.</p>
+                        <div class="tech-tags">
+                            <span>React</span><span>JS</span><span>HTML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal" data-url="https://example.com/app-ecommerce" data-year="2023" data-role="Mobile Dev" data-category="E-commerce" data-details="• Persistent cart
+• Secure checkout
+• Push notifications
+• Usage analytics">
+                    <div class="card-inner">
+                        <div class="project-img-container">
+                            <img src="https://picsum.photos/seed/mobileapp/600/400" alt="Project 3" class="project-img">
+                        </div>
+                        <h3>E-commerce App</h3>
+                        <p style="margin: 10px 0; color: var(--text-muted);">Sales app with cart and payment integration.</p>
+                        <div class="tech-tags">
+                            <span>Flutter</span><span>Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close">×</button>
+                <div class="modal-img-wrap">
+                    <img class="modal-img" alt="">
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title"></h3>
+                    
+                    <div class="modal-meta">
+                        <div class="meta-item">
+                            <i class="far fa-calendar-alt"></i> <span class="modal-year"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-user-tag"></i> <span class="modal-role"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shopping-cart"></i> <span class="modal-category"></span>
+                        </div>
+                    </div>
+
+                     <p class="modal-desc"></p>
+                     <h4 class="modal-subtitle">Highlights</h4>
+                     <ul class="modal-features"></ul>
+                     <div class="tech-tags modal-tags"></div>
+                    <a class="btn btn-primary modal-visit" target="_blank" rel="noopener">Visit Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="city-modal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close">×</button>
+                <div class="modal-body">
+                    <h3 class="modal-title">Rio de Janeiro — Brazil</h3>
+                    <div class="video-grid">
+                        <iframe class="city-video" src="" title="Copacabana Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe class="city-video" src="" title="Copacabana Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe class="city-video" src="" title="Copacabana Video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-wrapper reveal">
+                <div class="contact-info">
+                    <h3>Let's build something amazing?</h3>
+                    <p style="margin-bottom: 30px; color: var(--text-muted);">I'm available for internships and freelance projects.</p>
+                    
+                    <a class="contact-item" href="mailto:contato@wagnerpessoa.me">
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@wagnerpessoa.me</span>
+                    </a>
+                    <a class="contact-item" href="https://www.linkedin.com/in/WagnerPessoaDev" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin.com/in/WagnerPessoaDev</span>
+                    </a>
+                    <a class="contact-item" href="https://github.com/WagnerPessoaDev" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/WagnerPessoaDev</span>
+                    </a>
+                    <button type="button" class="contact-item contact-location" data-city="Rio de Janeiro" data-video1="https://www.youtube.com/watch?v=8nLRIZhq_0Y" data-video2="https://www.youtube.com/watch?v=yg3AUjbzQ-Q" data-video3="https://www.youtube.com/watch?v=BQGmkdwlilw">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rio de Janeiro, Brazil</span>
+                    </button>
+                </div>
+                
+                <form>
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea rows="5" placeholder="Your Message"></textarea>
+                    <button class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DevPortfolio.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="smooth-scroll.js"></script>
+    <script src="background-animation.js"></script>
+</body>
+</html>
