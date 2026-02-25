@@ -32,6 +32,21 @@ function type() {
 
 document.addEventListener('DOMContentLoaded', type);
 
+// --- 1.1 Alternar logo texto/imagem ---
+function initLogoSwitch() {
+    const logoItems = document.querySelectorAll('.logo-switch .logo-item');
+    if (logoItems.length < 2) return;
+
+    let logoIndex = 0;
+    setInterval(() => {
+        logoItems[logoIndex].classList.remove('active');
+        logoIndex = (logoIndex + 1) % logoItems.length;
+        logoItems[logoIndex].classList.add('active');
+    }, 3000);
+}
+
+document.addEventListener('DOMContentLoaded', initLogoSwitch);
+
 
 // --- 2. Scroll Reveal (Elementos aparecem ao rolar) ---
 const observerOptions = {
