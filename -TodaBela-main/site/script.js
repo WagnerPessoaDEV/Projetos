@@ -261,6 +261,99 @@ function toggleTheme() {
     }
 }
 
+// ==========================================
+// 5. CONTROLES DA LOJA (PLAY/PAUSE, AVANCAR, VOLTAR)
+// ==========================================
+
+function initLojaControls() {
+    const lojaSlider = document.querySelector('.loja-slider');
+    const lojaTrack = document.querySelector('.loja-track');
+    const prevBtn = document.getElementById('lojaPrev');
+    const playPauseBtn = document.getElementById('lojaPlayPause');
+    const nextBtn = document.getElementById('lojaNext');
+
+    if (!lojaSlider || !lojaTrack || !prevBtn || !playPauseBtn || !nextBtn) return;
+
+    if (!lojaTrack.dataset.duplicated) {
+        const items = Array.from(lojaTrack.children);
+        items.forEach(item => lojaTrack.appendChild(item.cloneNode(true)));
+        lojaTrack.dataset.duplicated = 'true';
+    }
+
+    let isPlaying = true;
+    let rafId = null;
+    const speed = 0.5; // pixels por frame
+
+    const getStep = () => {
+        const card = lojaTrack.querySelector('.produto-card');
+        if (!card) return 320;
+        const styles = window.getComputedStyle(card);
+        const marginRight = parseFloat(styles.marginRight) || 0;
+        return card.offsetWidth + marginRight;
+    };
+
+    const animate = () => {
+        const halfWidth = lojaTrack.scrollWidth / 2;
+        lojaSlider.scrollLeft += speed;
+        if (lojaSlider.scrollLeft >= halfWidth) {
+            lojaSlider.scrollLeft = 0;
+        }
+        if (isPlaying) {
+            rafId = requestAnimationFrame(animate);
+        }
+    };
+
+    const start = () => {
+        if (isPlaying) return;
+        isPlaying = true;
+        playPauseBtn.textContent = 'Pause';
+        playPauseBtn.setAttribute('aria-pressed', 'false');
+        rafId = requestAnimationFrame(animate);
+    };
+
+    const stop = () => {
+        if (!isPlaying) return;
+        isPlaying = false;
+        playPauseBtn.textContent = 'Play';
+        playPauseBtn.setAttribute('aria-pressed', 'true');
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = null;
+    };
+
+    playPauseBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            stop();
+        } else {
+            start();
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const step = getStep();
+        const halfWidth = lojaTrack.scrollWidth / 2;
+        if (lojaSlider.scrollLeft <= 0) {
+            lojaSlider.scrollLeft = halfWidth;
+        }
+        lojaSlider.scrollBy({ left: -step, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const step = getStep();
+        const halfWidth = lojaTrack.scrollWidth / 2;
+        if (lojaSlider.scrollLeft >= halfWidth) {
+            lojaSlider.scrollLeft = 0;
+        }
+        lojaSlider.scrollBy({ left: step, behavior: 'smooth' });
+    });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        stop();
+        return;
+    }
+
+    rafId = requestAnimationFrame(animate);
+}
+
 // Inicializar preferências
 window.addEventListener('DOMContentLoaded', () => {
     // Tema
@@ -290,4 +383,6 @@ window.addEventListener('DOMContentLoaded', () => {
         if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
         if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
     });
+
+    initLojaControls();
 });

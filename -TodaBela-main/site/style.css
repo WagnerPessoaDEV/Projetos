@@ -536,23 +536,50 @@ body.dark-mode .sobre p {
     overflow: hidden;
     position: relative;
     padding: 20px 0;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.loja-slider::-webkit-scrollbar {
+    display: none;
 }
 
 .loja-track {
     display: flex;
     width: max-content;
-    animation: scrollRight 160s linear infinite; /* Mais lento para acompanhar a galeria */
+    will-change: transform;
 }
 
-/* Pausa ao passar o mouse */
-.loja-track:hover {
-    animation-play-state: paused;
+.loja-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-/* Animação para a Direita */
-@keyframes scrollRight {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+.loja-control-btn {
+    background-color: var(--cor-secundaria);
+    color: var(--branco);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.loja-control-btn:hover {
+    background-color: var(--cor-secundaria-dark);
+    transform: translateY(-1px);
+}
+
+.loja-control-btn:active {
+    transform: translateY(0);
 }
 
 .produto-card {
