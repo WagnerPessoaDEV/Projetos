@@ -4,7 +4,7 @@
   "dictionaryDefinitions": [
     {
       "name": "project-words",
-      "path": "./cspell-words.txt",
+      "path": "./agenda/cspell-words.txt",
       "addWords": true
     }
   ],
