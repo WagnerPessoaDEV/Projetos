@@ -77,30 +77,6 @@ nav {
     position: relative;
 }
 
-.logo-switch {
-    display: inline-grid;
-    align-items: center;
-    line-height: 1;
-}
-
-.logo-switch .logo-item {
-    grid-area: 1 / 1;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.logo-switch .logo-item.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.logo-switch .logo-mark img {
-    height: 32px;
-    width: auto;
-    display: block;
-}
-
 .logo span { color: var(--primary); }
 .logo::after {
     content: '_';
@@ -337,6 +313,79 @@ section { padding: clamp(70px, 10vw, 100px) 20px; max-width: 1200px; margin: 0 a
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- SOBRE --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text p {
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.about-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 24px;
+}
+
+.about-pill {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+    background: rgba(0, 242, 234, 0.08);
+}
+
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.about-cards {
+    display: grid;
+    gap: 20px;
+}
+
+.about-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 22px;
+    border-radius: 16px;
+    transition: var(--transition);
+}
+
+.about-card i {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.about-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.about-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px -10px rgba(0, 242, 234, 0.25);
 }
 
 /* --- SKILLS CARDS --- */
@@ -676,6 +725,7 @@ footer {
     .btn-group { justify-content: center; flex-wrap: wrap; }
     .hero-text p { margin-left: auto; margin-right: auto; }
     .code-card { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
     .contact-wrapper { grid-template-columns: 1fr; padding: 40px; }
     .section-header::before { display: none; }
     .modal-meta { flex-wrap: wrap; }
