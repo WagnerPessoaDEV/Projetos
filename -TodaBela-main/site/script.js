@@ -410,6 +410,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Modal da Loja
     const shopTitle = document.querySelector('.shop-title');
+    const shopLink = document.querySelector('.shop-link');
     if (shopTitle) {
         shopTitle.addEventListener('click', openShopModal);
         shopTitle.addEventListener('keydown', (event) => {
@@ -417,6 +418,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 event.preventDefault();
                 openShopModal();
             }
+        });
+    }
+    if (shopLink) {
+        shopLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            openShopModal();
         });
     }
 
