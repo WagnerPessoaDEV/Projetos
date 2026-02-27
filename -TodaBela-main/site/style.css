@@ -655,6 +655,7 @@ body.dark-mode .sobre p {
     display: flex;
     width: max-content; /* Permite que os itens fiquem em linha */
     animation: scroll 80s linear infinite; /* Ajustado para velocidade similar à loja */
+    animation-direction: reverse; /* Sentido oposto ao slider da loja */
 }
 
 /* Pausa a animação ao passar o mouse */
