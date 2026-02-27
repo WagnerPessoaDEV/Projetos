@@ -160,6 +160,91 @@ body {
     overflow-x: hidden;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
+/* --- Modal da Loja --- */
+.shop-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.shop-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.shop-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.shop-modal-content {
+    position: relative;
+    width: min(1200px, 92vw);
+    max-height: 85vh;
+    margin: 6vh auto;
+    background: var(--branco);
+    color: var(--cor-texto);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    overflow: auto;
+}
+
+.shop-modal-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.shop-modal-subtitle {
+    color: var(--cor-texto);
+    margin-bottom: 18px;
+}
+
+.shop-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--cor-secundaria);
+    color: var(--branco);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.shop-modal-close:hover {
+    background: var(--cor-secundaria-dark);
+}
+
+.shop-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.shop-title {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.shop-title:focus {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
 /* Skip link (acessibilidade) */
 .skip-link {
     position: absolute;

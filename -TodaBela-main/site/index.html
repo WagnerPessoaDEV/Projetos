@@ -305,7 +305,7 @@
     <section id="loja" class="loja">
       <div class="container-fluid">
         <div class="section-title">
-          <h2 data-i18n="shop_title">Loja Virtual</h2>
+          <h2 data-i18n="shop_title" class="shop-title" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="shopModal">Loja Virtual</h2>
           <p data-i18n="shop_subtitle">
             Leve para casa produtos profissionais de beleza, além de peças de lingerie e itens de bem-estar e autoestima selecionados especialmente para você.
           </p>
@@ -795,6 +795,21 @@
         </div>
       </div>
     </section>
+
+    <!-- Modal da Loja -->
+    <div id="shopModal" class="shop-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="shopModalTitle">
+      <div class="shop-modal-backdrop" onclick="closeShopModal()"></div>
+      <div class="shop-modal-content" role="document">
+        <button class="shop-modal-close" type="button" aria-label="Fechar" onclick="closeShopModal()">&times;</button>
+        <div class="shop-modal-header">
+          <h3 id="shopModalTitle" data-i18n="shop_title">Loja Virtual</h3>
+          <p class="shop-modal-subtitle" data-i18n="shop_subtitle">
+            Leve para casa produtos profissionais de beleza, além de peças de lingerie e itens de bem-estar e autoestima selecionados especialmente para você.
+          </p>
+        </div>
+        <div class="shop-modal-grid" id="shopModalGrid"></div>
+      </div>
+    </div>
 
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">

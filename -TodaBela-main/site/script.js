@@ -150,10 +150,47 @@ function closeLightbox() {
     }
 }
 
+// ==========================================
+// 3.1 MODAL DA LOJA
+// ==========================================
+
+function openShopModal() {
+    const modal = document.getElementById('shopModal');
+    const grid = document.getElementById('shopModalGrid');
+    const track = document.querySelector('.loja-track');
+
+    if (!modal || !grid || !track) return;
+
+    const items = Array.from(track.children).filter(child => child.classList.contains('produto-card'));
+    let uniqueItems = items;
+    if (track.dataset.duplicated === 'true') {
+        uniqueItems = items.slice(0, Math.floor(items.length / 2));
+    }
+
+    grid.innerHTML = '';
+    uniqueItems.forEach(card => {
+        const clone = card.cloneNode(true);
+        grid.appendChild(clone);
+    });
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+}
+
+function closeShopModal() {
+    const modal = document.getElementById('shopModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+}
+
 // Fechar com tecla ESC
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") {
         closeLightbox();
+        closeShopModal();
     }
 });
 
@@ -370,6 +407,18 @@ window.addEventListener('DOMContentLoaded', () => {
     // Menu Mobile
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+
+    // Modal da Loja
+    const shopTitle = document.querySelector('.shop-title');
+    if (shopTitle) {
+        shopTitle.addEventListener('click', openShopModal);
+        shopTitle.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openShopModal();
+            }
+        });
+    }
 
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
