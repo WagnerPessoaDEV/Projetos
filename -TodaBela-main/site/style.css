@@ -201,6 +201,45 @@ body.modal-open {
     overflow: auto;
 }
 
+/* Scrollbar do modal da loja */
+.shop-modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(142, 68, 173, 0.55) rgba(255, 255, 255, 0.15);
+}
+
+.shop-modal-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.shop-modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.shop-modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(142, 68, 173, 0.85), rgba(112, 54, 136, 0.85));
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.shop-modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(155, 89, 182, 0.95), rgba(142, 68, 173, 0.95));
+}
+
+body.dark-mode .shop-modal-content {
+    scrollbar-color: rgba(155, 89, 182, 0.7) rgba(20, 20, 20, 0.2);
+}
+
+body.dark-mode .shop-modal-content::-webkit-scrollbar-track {
+    background: rgba(20, 20, 20, 0.25);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.dark-mode .shop-modal-content::-webkit-scrollbar-thumb {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
 body.dark-mode .shop-modal-content {
     background: rgba(20, 20, 20, 0.16);
     border: 1px solid rgba(255, 255, 255, 0.12);
