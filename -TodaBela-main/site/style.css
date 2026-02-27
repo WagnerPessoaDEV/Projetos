@@ -190,7 +190,7 @@ body.modal-open {
     width: min(1200px, 92vw);
     max-height: 85vh;
     margin: 6vh auto;
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(18px) saturate(1.2);
     -webkit-backdrop-filter: blur(18px) saturate(1.2);
     color: var(--cor-texto);
@@ -202,7 +202,7 @@ body.modal-open {
 }
 
 body.dark-mode .shop-modal-content {
-    background: rgba(20, 20, 20, 0.7);
+    background: rgba(20, 20, 20, 0.16);
     border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
