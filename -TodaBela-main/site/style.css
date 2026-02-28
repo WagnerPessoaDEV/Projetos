@@ -716,6 +716,7 @@ body.dark-mode .sobre p {
 
 .produto-card {
     width: 280px; /* Largura fixa para o slider */
+    height: 430px; /* Altura fixa para manter todos os cards no mesmo tamanho */
     flex-shrink: 0;
     margin-right: 30px; /* Substitui o gap */
     border: 1px solid #eee;
@@ -753,20 +754,33 @@ body.dark-mode .sobre p {
 .produto-info {
     padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
 }
 
 .produto-nome {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 10px;
+    min-height: 2.6em; /* Reserva duas linhas para alinhar alturas */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .produto-preco {
     color: var(--cor-secundaria); /* Preço em Roxo */
     font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     display: block;
+}
+
+.produto-info .btn {
+    margin-top: auto;
 }
 
 /* --- Galeria --- */
@@ -1102,6 +1116,7 @@ footer {
 
     .produto-card {
         width: 240px;
+        height: 410px;
     }
 
     .galeria-item {
