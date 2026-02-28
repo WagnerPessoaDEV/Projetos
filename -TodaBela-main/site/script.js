@@ -223,7 +223,7 @@ const translations = {
         service_nails_desc: "Pé e Mão Simples<br>Esmaltação em Gel<br>Postiça Realista<br>Banho de Gel<br>Molde F1<br>Gel na Tips.",
         service_lash_desc: "Design de sobrancelha<br>Brow lamination<br>Volume brasileiro<br>Volume egípcio<br>Mega volume",
         service_hair_desc: "Consultoria de Visagismo<br>Cortes Personalizados<br>Colorimetria Avançada<br>Hair Styling e Penteados<br>Tratamentos e Nutrição<br>Alisamentos",
-        shop_title: "Loja Virtual",
+        shop_title: "Produtos em Destaque",
         shop_subtitle: "Leve para casa produtos profissionais de beleza, além de peças de lingerie e itens de bem-estar e autoestima selecionados especialmente para você.",
         gallery_title: "Resultados que Encantam",
         footer_desc: "Realçando sua beleza com profissionalismo e cuidado.",
