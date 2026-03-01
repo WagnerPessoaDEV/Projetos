@@ -6,9 +6,14 @@
       "name": "project-words",
       "path": "./agenda/cspell-words.txt",
       "addWords": true
+    },
+    {
+      "name": "site-words",
+      "path": "./site/cspell-words.txt",
+      "addWords": true
     }
   ],
-  "dictionaries": ["project-words", "pt_BR"],
+  "dictionaries": ["project-words", "site-words", "pt_BR"],
   "ignorePaths": [
     "**/__pycache__/**",
     "**/*.db"
