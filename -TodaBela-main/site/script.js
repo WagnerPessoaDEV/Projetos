@@ -197,14 +197,23 @@ function openTeamModalFromCard(card) {
     const waBtn = document.getElementById('teamModalWhatsApp');
     const img = card.querySelector('img');
     const name = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
-    const roleEl = card.querySelector('p[data-i18n*="role"]');
-    const descEl = card.querySelector('p[data-i18n*="desc"]');
+    // Buscar cargo/descrição de forma resiliente
+    let roleEl = card.querySelector('p[data-i18n*="role"]');
+    let descEl = card.querySelector('p[data-i18n*="desc"]');
+    if (!roleEl || !descEl) {
+        const ps = Array.from(card.querySelectorAll('p'));
+        if (!roleEl && ps.length > 0) roleEl = ps[0];
+        if (!descEl && ps.length > 1) descEl = ps[ps.length - 1];
+    }
     const ig = card.dataset.instagram || 'https://www.instagram.com/todabela_rj/';
     const wa = card.dataset.whatsapp || '5521980261948';
-    if (avatar && img) avatar.src = img.src;
+    if (avatar && img) {
+        avatar.src = img.src;
+        avatar.alt = name;
+    }
     if (title) title.textContent = name;
-    if (role && roleEl) role.textContent = roleEl.textContent;
-    if (desc && descEl) desc.textContent = descEl.textContent;
+    if (role && roleEl) role.innerHTML = roleEl.innerHTML || roleEl.textContent;
+    if (desc && descEl) desc.innerHTML = descEl.innerHTML || descEl.textContent;
     if (igBtn) igBtn.href = ig;
     if (waBtn) {
         const text = encodeURIComponent('Olá! Gostaria de falar com ' + name + ' do Toda Bela.');
