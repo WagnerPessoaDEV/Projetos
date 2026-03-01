@@ -898,6 +898,7 @@ body.dark-mode .sobre p {
     margin-bottom: 10px;
     min-height: 2.6em; /* Reserva duas linhas para alinhar alturas */
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
