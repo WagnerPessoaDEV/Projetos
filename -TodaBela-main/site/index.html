@@ -147,7 +147,7 @@
         </div>
 
         <div class="servicos-grid">
-          <div class="servico-card">
+          <div class="servico-card" data-instagram="https://www.instagram.com/todabela_rj/" data-whatsapp="5521980261948">
             <div class="equipe-img-container">
               <img src="imagens/jessica/PerfilJessica.png" alt="Jessica Oliveira" class="equipe-img" loading="lazy">
             </div>
@@ -158,7 +158,7 @@
             </p>
           </div>
 
-          <div class="servico-card">
+          <div class="servico-card" data-instagram="https://www.instagram.com/todabela_rj/" data-whatsapp="5521980261948">
             <div class="equipe-img-container">
               <img src="imagens/erlane/perfil.png" alt="Erlane Souza" class="equipe-img" loading="lazy">
             </div>
@@ -169,7 +169,7 @@
             </p>
           </div>
 
-          <div class="servico-card">
+          <div class="servico-card" data-instagram="https://www.instagram.com/todabela_rj/" data-whatsapp="5521980261948">
             <div class="equipe-img-container">
               <img src="imagens/bianca/PerfilBianca.png" alt="Bianca Lima" class="equipe-img" loading="lazy">
             </div>
@@ -808,6 +808,25 @@
           </p>
         </div>
         <div class="shop-modal-grid" id="shopModalGrid"></div>
+      </div>
+    </div>
+
+    <div id="teamModal" class="team-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="teamModalTitle">
+      <div class="team-modal-backdrop" onclick="closeTeamModal()"></div>
+      <div class="team-modal-content" role="document">
+        <button class="team-modal-close" type="button" aria-label="Fechar" onclick="closeTeamModal()">&times;</button>
+        <div class="team-modal-body">
+          <div class="team-modal-avatar">
+            <img id="teamModalAvatar" alt="">
+          </div>
+          <h3 id="teamModalTitle"></h3>
+          <p id="teamModalRole"></p>
+          <p id="teamModalDesc"></p>
+          <div class="team-modal-actions">
+            <a id="teamModalInstagram" class="btn" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a id="teamModalWhatsApp" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
       </div>
     </div>
 

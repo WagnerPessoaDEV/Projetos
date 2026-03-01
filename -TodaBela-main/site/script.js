@@ -186,11 +186,49 @@ function closeShopModal() {
     document.body.classList.remove('modal-open');
 }
 
+function openTeamModalFromCard(card) {
+    const modal = document.getElementById('teamModal');
+    if (!modal) return;
+    const avatar = document.getElementById('teamModalAvatar');
+    const title = document.getElementById('teamModalTitle');
+    const role = document.getElementById('teamModalRole');
+    const desc = document.getElementById('teamModalDesc');
+    const igBtn = document.getElementById('teamModalInstagram');
+    const waBtn = document.getElementById('teamModalWhatsApp');
+    const img = card.querySelector('img');
+    const name = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
+    const roleEl = card.querySelector('p[data-i18n*="role"]');
+    const descEl = card.querySelector('p[data-i18n*="desc"]');
+    const ig = card.dataset.instagram || 'https://www.instagram.com/todabela_rj/';
+    const wa = card.dataset.whatsapp || '5521980261948';
+    if (avatar && img) avatar.src = img.src;
+    if (title) title.textContent = name;
+    if (role && roleEl) role.textContent = roleEl.textContent;
+    if (desc && descEl) desc.textContent = descEl.textContent;
+    if (igBtn) igBtn.href = ig;
+    if (waBtn) {
+        const text = encodeURIComponent('Olá! Gostaria de falar com ' + name + ' do Toda Bela.');
+        waBtn.href = 'https://wa.me/' + wa + '?text=' + text;
+    }
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+}
+
+function closeTeamModal() {
+    const modal = document.getElementById('teamModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+}
+
 // Fechar com tecla ESC
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") {
         closeLightbox();
         closeShopModal();
+        closeTeamModal();
     }
 });
 
@@ -426,6 +464,17 @@ window.addEventListener('DOMContentLoaded', () => {
             openShopModal();
         });
     }
+
+    document.querySelectorAll('#equipe .servico-card').forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('click', () => openTeamModalFromCard(card));
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openTeamModalFromCard(card);
+            }
+        });
+    });
 
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
