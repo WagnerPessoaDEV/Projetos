@@ -145,6 +145,34 @@ body {
   background-color: var(--neutral-white);
 }
 
+.inventory-filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  padding: 10px 22px;
+  border: 2px solid var(--primary-blue);
+  background: transparent;
+  color: var(--primary-blue);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.filter-btn.active {
+  background: var(--primary-blue);
+  color: var(--neutral-white);
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+}
+
 .section-title {
   text-align: center;
   margin-bottom: 60px;
@@ -242,4 +270,14 @@ body {
   .inventory-section {
       padding: 40px 20px;
   }
+
+    .inventory-filters {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .filter-btn {
+      width: 100%;
+      max-width: 260px;
+    }
 }

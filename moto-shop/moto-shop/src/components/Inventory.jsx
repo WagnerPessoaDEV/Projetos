@@ -1,5 +1,5 @@
 // src/components/Inventory.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Dados simulados de motos
@@ -11,12 +11,34 @@ const bikes = [
 ];
 
 const Inventory = () => {
+  const [filter, setFilter] = useState('new');
+  const filteredBikes = bikes.filter((bike) => bike.status === filter);
+
   return (
     <section className="inventory-section" id="inventory">
       <h2 className="section-title">Nosso Estoque</h2>
-      
+
+      <div className="inventory-filters" role="tablist" aria-label="Filtrar estoque">
+        <button
+          type="button"
+          className={`filter-btn ${filter === 'new' ? 'active' : ''}`}
+          onClick={() => setFilter('new')}
+          aria-pressed={filter === 'new'}
+        >
+          Motos Novas
+        </button>
+        <button
+          type="button"
+          className={`filter-btn ${filter === 'used' ? 'active' : ''}`}
+          onClick={() => setFilter('used')}
+          aria-pressed={filter === 'used'}
+        >
+          Motos Usadas
+        </button>
+      </div>
+
       <div className="inventory-grid">
-        {bikes.map((bike) => (
+        {filteredBikes.map((bike) => (
           <motion.div 
             key={bike.id} 
             className="moto-card"
