@@ -14,7 +14,7 @@ function App() {
       
       <footer className="footer">
         <p>&copy; 2023 MotoSpeed. Todos os direitos reservados.</p>
-        <p>Desenvolvido com React & Framer Motion</p>
+        <p>Desenvolvido por Wagner Pessoa</p>
       </footer>
     </div>
   );
