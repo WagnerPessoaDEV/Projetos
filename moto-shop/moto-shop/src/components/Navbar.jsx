@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import './App.css'; // Garanta que o CSS está importado no App.js principal
+import '../App.css'; // Shared styles live at src/App.css
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
