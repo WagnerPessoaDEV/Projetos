@@ -1,6 +1,7 @@
 // src/components/Inventory.jsx
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import xmax2024Image from '../assets/estoque/xmax-2024.jpg';
 
 // Dados simulados de motos
 const newGallery = [
@@ -13,7 +14,7 @@ const newGallery = [
 ];
 
 const usedGallery = [
-  'https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+  '/moto-shop/src/assets/estoque/xmax-2024 (2).jpg',
   'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
   'https://images.unsplash.com/photo-1558980394-0d9fd03b1f1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
   'https://images.unsplash.com/photo-1508973378896-7c9de50d8f4d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
@@ -52,7 +53,7 @@ const usedBikes = [
     price: 'R$ 0.00',
     km: '0.000 km',
     status: 'used',
-    image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    image: xmax2024Image,
     gallery: usedGallery,
   },
   {
