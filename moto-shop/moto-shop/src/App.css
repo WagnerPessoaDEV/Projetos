@@ -139,6 +139,115 @@ body {
   transform: translateY(-3px);
 }
 
+.btn-secondary {
+  padding: 14px 36px;
+  background-color: var(--primary-blue);
+  color: var(--neutral-white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #004080;
+  transform: translateY(-2px);
+}
+
+/* Sell Section */
+.sell-section {
+  padding: 90px 50px;
+  background: radial-gradient(circle at top left, #1b2233, #0b111c 60%);
+  color: #e9eef7;
+}
+
+.sell-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.sell-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sell-eyebrow {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #8ec3ff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sell-eyebrow::before {
+  content: '';
+  width: 4px;
+  height: 22px;
+  background: var(--primary-red);
+  border-radius: 2px;
+}
+
+.sell-title {
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: var(--neutral-white);
+}
+
+.sell-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #c9d3e6;
+  max-width: 520px;
+}
+
+.sell-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sell-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.sell-item::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-red);
+  box-shadow: 0 0 0 4px rgba(204, 0, 0, 0.15);
+}
+
+.sell-media {
+  width: 100%;
+  min-height: 360px;
+  border-radius: 14px;
+  background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* Inventory Section */
 .inventory-section {
   padding: 80px 50px;
@@ -270,6 +379,18 @@ body {
   .inventory-section {
       padding: 40px 20px;
   }
+
+    .sell-section {
+      padding: 70px 20px;
+    }
+
+    .sell-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sell-title {
+      font-size: 2.1rem;
+    }
 
     .inventory-filters {
       flex-direction: column;
