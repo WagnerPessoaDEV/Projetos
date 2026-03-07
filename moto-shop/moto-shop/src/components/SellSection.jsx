@@ -1,6 +1,7 @@
 // src/components/SellSection.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import sellImage from '../assets/vender-motos.png';
 
 const SellSection = () => {
   return (
@@ -41,7 +42,12 @@ const SellSection = () => {
             Quero vender
           </motion.a>
         </div>
-        <div className="sell-media" role="presentation" aria-hidden="true" />
+        <div
+          className="sell-media"
+          style={{ backgroundImage: `url(${sellImage})` }}
+          role="presentation"
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

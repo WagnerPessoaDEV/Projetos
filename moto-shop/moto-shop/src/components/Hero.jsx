@@ -18,7 +18,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        As melhores motos novas e usadas com o melhor financiamento do mercado.
+        Veem que vem, só na DuMotors tem!
       </motion.p>
       
       <motion.a 
