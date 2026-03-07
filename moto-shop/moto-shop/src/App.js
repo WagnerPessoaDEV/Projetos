@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SellSection from './components/SellSection';
+import AboutSection from './components/AboutSection';
 import Inventory from './components/Inventory';
 import './App.css';
 
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Hero />
       <SellSection />
+      <AboutSection />
       <Inventory />
       
       <footer className="footer">
