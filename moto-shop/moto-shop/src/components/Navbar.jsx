@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import logo from '../assets/logo.png';
 import '../App.css'; // Shared styles live at src/App.css
 
-const Navbar = () => {
+const Navbar = ({ theme, onToggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -36,6 +36,14 @@ const Navbar = () => {
         <li><a href="#about">Sobre</a></li>
         <li><a href="#contact">Contato</a></li>
       </ul>
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={onToggleTheme}
+        aria-pressed={theme === 'dark'}
+      >
+        {theme === 'dark' ? 'Tema escuro' : 'Tema claro'}
+      </button>
       <div className="menu-icon">
         <i className="fas fa-bars"></i>
       </div>

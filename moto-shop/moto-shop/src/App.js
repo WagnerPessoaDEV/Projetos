@@ -1,5 +1,5 @@
 // src/App.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SellSection from './components/SellSection';
@@ -8,9 +8,26 @@ import Inventory from './components/Inventory';
 import './App.css';
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 'light';
+    }
+    return window.localStorage.getItem('theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    window.localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar
+        theme={theme}
+        onToggleTheme={() =>
+          setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'))
+        }
+      />
       <Hero />
       <SellSection />
       <AboutSection />
