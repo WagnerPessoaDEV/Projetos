@@ -46,11 +46,11 @@ Trabalho, fé, família e determinação são os pilares da nossa história.
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h3>Por que escolher a MotoSpeed?</h3>
+          <h3>Por que escolher a DuMotors?</h3>
           <ul>
-            <li>Inspecao completa e revisao antes da entrega.</li>
+            <li>Inspeção completa e revisao antes da entrega.</li>
             <li>Equipe especializada em financiamento e consorcio.</li>
-            <li>Negociacao simples com opcao de troca.</li>
+            <li>Negociacao simples com opção de troca.</li>
             <li>Suporte dedicado no pos-venda.</li>
           </ul>
           <button type="button" className="btn-primary">
