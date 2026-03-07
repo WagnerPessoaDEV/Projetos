@@ -75,7 +75,7 @@ function App() {
         
         <div className="footer-bottom">
           <span>&copy; 2026 DuMotors. Todos os direitos reservados.</span>
-          <p>Desenvolvido por Wagner Pessoa • @StartCria021</p>
+          <p>Desenvolvido por Wagner Pessoa • StartCria021</p>
         </div>
       </footer>
     </div>
