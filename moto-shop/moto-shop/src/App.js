@@ -23,30 +23,25 @@ function App() {
             <p>
               Vem fazer acontecer, vem que vem so na DuMotors tem.
             </p>
-            <a className="btn-secondary" href="#inventory">
-              Ver estoque
-            </a>
           </div>
 
           <div className="footer-links">
-            <h4>Links Uteis</h4>
-            <ul>
-              <li><a href="#home">Inicio</a></li>
-              <li><a href="#inventory">Estoque</a></li>
-              <li><a href="#about">Sobre</a></li>
-              <li><a href="#contact">Contato</a></li>
-            </ul>
+            <h4>contato</h4>
+            <p>(21) 99001-8557</p>
+            <p>@dumotors</p>
           </div>
 
           <div className="footer-contact">
-            <h4>Contato</h4>
-            <p>Av. Canal 2, 221, Vila do Joao</p>
-            <p>(21) 99001-8557</p>
-            <p>contato@dumotors.com.br</p>
+            <h4>LOCALIZAÇÃO</h4>
+            <p>Av. Canal 2, 221</p>
+            <p>Bonsucesso - Vila Do João</p>
+            <p>Rio de Janeiro - RJ</p>
           </div>
         </div>
+        
         <div className="footer-bottom">
           <span>&copy; 2026 DuMotors. Todos os direitos reservados.</span>
+          <p>Desenvolvido por Wagner Pessoa • @StartCria021</p>
         </div>
       </footer>
     </div>
