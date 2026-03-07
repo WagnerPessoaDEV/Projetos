@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import logo from '../assets/logo.png';
 import '../App.css'; // Shared styles live at src/App.css
 
 const Navbar = () => {
@@ -24,7 +25,10 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="logo">
-        Du<span>Motors</span>
+        <img src={logo} alt="DuMotors" className="logo-image" />
+        <span className="logo-text">
+          Du<span>Motors</span>
+        </span>
       </div>
       <ul className="nav-links">
         <li><a href="#home">Início</a></li>

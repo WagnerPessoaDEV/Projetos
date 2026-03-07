@@ -44,10 +44,25 @@ body {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 2rem;
   font-weight: 900;
   letter-spacing: 2px;
   color: var(--neutral-white);
+}
+
+.logo-image {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.logo-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
 }
 
 .logo span {
