@@ -43,7 +43,7 @@ function App() {
               </a>
               <a
                 className="contact-item"
-                href="https://instagram.com/dumotors"
+                href="https://instagram.com/dumotors.rj"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -52,7 +52,33 @@ function App() {
                     <path d="M21 4H11c-3.86 0-7 3.14-7 7v10c0 3.86 3.14 7 7 7h10c3.86 0 7-3.14 7-7V11c0-3.86-3.14-7-7-7Zm5 17c0 2.76-2.24 5-5 5H11c-2.76 0-5-2.24-5-5V11c0-2.76 2.24-5 5-5h10c2.76 0 5 2.24 5 5v10ZM16 10.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm5.75-9.88a1.12 1.12 0 1 0 0 2.24 1.12 1.12 0 0 0 0-2.24Z" />
                   </svg>
                 </span>
-                <span>@dumotors</span>
+                <span>@dumotors.rj</span>
+              </a>
+              <a
+                className="contact-item"
+                href="https://www.tiktok.com/@dumotors.rj"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" focusable="false">
+                    <path d="M22.4 5c.7 2.3 2.5 4.1 4.8 4.8v4a10.1 10.1 0 0 1-4.8-1.5v8.2c0 4.6-3.7 8.4-8.4 8.4a8.4 8.4 0 0 1 0-16.8c.5 0 1 .05 1.5.14v4.2a4.4 4.4 0 1 0 3.4 4.3V5h3.5Z" />
+                  </svg>
+                </span>
+                <span>@dumotors.rj</span>
+              </a>
+              <a
+                className="contact-item"
+                href="https://facebook.com/dumotors.rj"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" focusable="false">
+                    <path d="M18.2 11.2V9.5c0-.8.5-1 1.1-1h2.1V5h-2.8c-3.2 0-4.9 1.9-4.9 4.9v1.3h-2.4v3.6h2.4V27h3.9V14.8h2.9l.4-3.6h-3.3Z" />
+                  </svg>
+                </span>
+                <span>/dumotors.rj</span>
               </a>
               <a className="contact-item" href="mailto:contato@dumotors.com.br">
                 <span className="contact-icon" aria-hidden="true">
