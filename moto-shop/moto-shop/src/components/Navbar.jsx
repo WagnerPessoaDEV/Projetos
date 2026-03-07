@@ -24,7 +24,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="logo">
-        MOTO<span>SPEED</span>
+        Du<span>Motors</span>
       </div>
       <ul className="nav-links">
         <li><a href="#home">Início</a></li>
