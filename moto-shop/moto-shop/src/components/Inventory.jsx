@@ -3,16 +3,23 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Dados simulados de motos
-const bikes = [
+const newBikes = [
   { id: 1, name: 'Honda CB 500F', year: 2023, price: 'R$ 35.900', km: '0 km', status: 'new', image: 'https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' },
-  { id: 2, name: 'Yamaha MT-07', year: 2022, price: 'R$ 42.500', km: '5.200 km', status: 'used', image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' },
-  { id: 3, name: 'Kawasaki Ninja 400', year: 2023, price: 'R$ 38.900', km: '0 km', status: 'new', image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' },
-  { id: 4, name: 'Harley Davidson Iron 883', year: 2020, price: 'R$ 55.000', km: '12.000 km', status: 'used', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' },
+  { id: 2, name: 'Kawasaki Ninja 400', year: 2023, price: 'R$ 38.900', km: '0 km', status: 'new', image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' },
+];
+
+const usedBikes = [
+  { id: 1, name: 'Xmax 250 Abs', year: 2024, price: 'R$ 0.00', km: '0.000 km', status: 'used', image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' },
+  { id: 2, name: 'Harley Davidson Iron 883', year: 2020, price: 'R$ 55.000', km: '12.000 km', status: 'used', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' },
 ];
 
 const Inventory = () => {
   const [filter, setFilter] = useState('new');
-  const filteredBikes = bikes.filter((bike) => bike.status === filter);
+  const bikesByStatus = {
+    new: newBikes,
+    used: usedBikes,
+  };
+  const filteredBikes = bikesByStatus[filter] || [];
 
   return (
     <section className="inventory-section" id="inventory">
