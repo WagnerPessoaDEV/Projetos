@@ -1,10 +1,17 @@
 // src/components/Hero.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import heroImage from '../assets/Fachada.jpg';
 
 const Hero = () => {
   return (
-    <section className="hero" id="home">
+    <section
+      className="hero"
+      id="home"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${heroImage})`,
+      }}
+    >
       <motion.h1 
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
