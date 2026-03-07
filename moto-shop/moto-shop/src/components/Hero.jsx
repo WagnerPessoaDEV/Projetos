@@ -17,7 +17,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
-        A Potência que você <span>Procura</span>
+        CANCELA O <span>UBER!!!</span>
       </motion.h1>
       
       <motion.p
