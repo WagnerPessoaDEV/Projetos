@@ -2,24 +2,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import xmax2024Image from '../assets/estoque/xmax-2024.jpg';
+import xmax2024Image1 from '../assets/estoque/xmax-2024 (1).jpg';
+import xmax2024Image2 from '../assets/estoque/xmax-2024 (2).jpg';
+import xmax2024Image3 from '../assets/estoque/xmax-2024 (3).jpg';
+import xmax2024Image4 from '../assets/estoque/xmax-2024 (4).jpg';
+import xmax2024Image5 from '../assets/estoque/xmax-2024 (5).jpg';
 
-// Dados simulados de motos
-const newGallery = [
-  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1527719327859-2e7b212d21b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1472417583565-62e7bdeda490?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+const buildGallery = (seed) => [
+  `https://source.unsplash.com/1200x800/?motorcycle,${seed}-1`,
+  `https://source.unsplash.com/1200x800/?motorcycle,${seed}-2`,
+  `https://source.unsplash.com/1200x800/?motorcycle,${seed}-3`,
+  `https://source.unsplash.com/1200x800/?motorcycle,${seed}-4`,
+  `https://source.unsplash.com/1200x800/?motorcycle,${seed}-5`,
+  `https://source.unsplash.com/1200x800/?motorcycle,${seed}-6`,
 ];
 
-const usedGallery = [
-  '/moto-shop/src/assets/estoque/xmax-2024 (2).jpg',
-  'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1558980394-0d9fd03b1f1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1508973378896-7c9de50d8f4d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1542728928-1413d1894ed1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+const xmaxGallery = [
+  xmax2024Image,
+  xmax2024Image1,
+  xmax2024Image2,
+  xmax2024Image3,
+  xmax2024Image4,
+  xmax2024Image5,
 ];
 //motos novas
 const newBikes = [
@@ -31,7 +35,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('cb-500f'),
   },
   {
     id: 2,
@@ -41,7 +45,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('ninja-400'),
   },
   {
     id: 3,
@@ -51,7 +55,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('mt-03'),
   },
   {
     id: 4,
@@ -61,7 +65,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1527719327859-2e7b212d21b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('r15'),
   },
   {
     id: 5,
@@ -71,7 +75,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('cb-650r'),
   },
   {
     id: 6,
@@ -81,7 +85,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1472417583565-62e7bdeda490?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('z400'),
   },
   {
     id: 7,
@@ -91,7 +95,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('g-310-r'),
   },
   {
     id: 8,
@@ -101,7 +105,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('trident-660'),
   },
   {
     id: 9,
@@ -111,7 +115,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1508973378896-7c9de50d8f4d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('scrambler-icon'),
   },
   {
     id: 10,
@@ -121,7 +125,7 @@ const newBikes = [
     km: '0 km',
     status: 'new',
     image: 'https://images.unsplash.com/photo-1558980394-0d9fd03b1f1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: newGallery,
+    gallery: buildGallery('gsx-s750'),
   },
 ];
 //motos usadas
@@ -134,7 +138,7 @@ const usedBikes = [
     km: '0.000 km',
     status: 'used',
     image: xmax2024Image,
-    gallery: usedGallery,
+    gallery: xmaxGallery,
   },
   {
     id: 2,
@@ -144,7 +148,7 @@ const usedBikes = [
     km: '12.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('iron-883'),
   },
   {
     id: 3,
@@ -154,7 +158,7 @@ const usedBikes = [
     km: '18.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('cb-500x'),
   },
   {
     id: 4,
@@ -164,7 +168,7 @@ const usedBikes = [
     km: '24.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1527719327859-2e7b212d21b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('fazer-250'),
   },
   {
     id: 5,
@@ -174,7 +178,7 @@ const usedBikes = [
     km: '31.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('versys-650'),
   },
   {
     id: 6,
@@ -184,7 +188,7 @@ const usedBikes = [
     km: '22.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1472417583565-62e7bdeda490?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('xre-300'),
   },
   {
     id: 7,
@@ -194,7 +198,7 @@ const usedBikes = [
     km: '27.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1505843513577-22bb7d21e455?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('f-750-gs'),
   },
   {
     id: 8,
@@ -204,7 +208,7 @@ const usedBikes = [
     km: '35.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1517673132405-a56a62b18caf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('bonneville-t100'),
   },
   {
     id: 9,
@@ -214,7 +218,7 @@ const usedBikes = [
     km: '9.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1508973378896-7c9de50d8f4d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('meteor-350'),
   },
   {
     id: 10,
@@ -224,7 +228,7 @@ const usedBikes = [
     km: '40.000 km',
     status: 'used',
     image: 'https://images.unsplash.com/photo-1558980394-0d9fd03b1f1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    gallery: usedGallery,
+    gallery: buildGallery('v-strom-650'),
   },
 ];
 
