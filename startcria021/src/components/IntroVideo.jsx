@@ -30,7 +30,7 @@ const IntroVideo = ({ onEnd }) => {
     <VideoContainer>
       {/* IMPORTANTE: Coloque seu video na pasta public com o nome intro.mp4 */}
       <StyledVideo autoPlay muted onEnded={onEnd}>
-        <source src="intro.mp4" type="video/mp4" />
+        <source src="intro.mp4.mp4" type="video/mp4" />
         Seu navegador não suporta vídeo.
       </StyledVideo>
       <SkipButton onClick={onEnd} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
