@@ -17,7 +17,7 @@ const MenuItem = styled.a`color: var(--cinza-claro); font-size: 1rem; transition
 
 const Navbar = () => (
   <Nav>
-    <Logo href="#">TECH<span style={{color: '#FFF'}}>COPPER</span></Logo>
+    <Logo href="#">StartCria<span style={{color: '#FFF'}}>021</span></Logo>
     <Menu>
       <MenuItem href="#home">Início</MenuItem>
       <MenuItem href="#servicos">Serviços</MenuItem>

@@ -6,8 +6,8 @@ const FooterContainer = styled.footer`background-color: #020c1b; padding: 40px 5
 
 const Footer = () => (
   <FooterContainer id="contato">
-    <p>&copy; 2023 <span>TechCopper</span> - Todos os direitos reservados.</p>
-    <p style={{fontSize: '0.9rem', marginTop: '10px'}}>contato@suaempresa.com</p>
+    <p>&copy; 2025 <span>StarCria021</span> - Todos os direitos reservados.</p>
+    <p style={{fontSize: '0.9rem', marginTop: '10px'}}>Wagner Pessoa - Desenvolvedor </p>
   </FooterContainer>
 );
 export default Footer;
