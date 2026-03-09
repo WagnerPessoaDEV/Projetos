@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const HeroSection = styled.section`height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, var(--azul) 0%, #112240 100%); padding: 0 20px;`;
+const HeroSection = styled.section`height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: transparent; padding: 0 20px;`;
 const Title = styled(motion.h1)`font-size: 4rem; margin-bottom: 20px; @media (max-width: 768px) { font-size: 2.5rem; }`;
 const Subtitle = styled(motion.p)`font-size: 1.5rem; color: var(--cinza); margin-bottom: 40px; max-width: 600px;`;
 const CTAButton = styled(motion.button)`padding: 15px 40px; font-size: 1.2rem; background-color: var(--cobre); color: var(--azul); border: none; border-radius: 4px; cursor: pointer; font-weight: bold;`;

@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const ServicesSection = styled.section`padding: 100px 50px; background-color: #112240;`;
+const ServicesSection = styled.section`padding: 100px 50px; background-color: transparent;`;
 const SectionTitle = styled(motion.h2)`text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--cobre-claro);`;
 const CardsContainer = styled.div`display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;`;
 const Card = styled(motion.div)`background: rgba(255, 255, 255, 0.05); border: 1px solid var(--cobre); border-radius: 8px; padding: 30px; width: 300px; text-align: center; h3 { margin-bottom: 15px; color: var(--cinza-claro); } p { color: var(--cinza); font-size: 0.95rem; line-height: 1.6; }`;
