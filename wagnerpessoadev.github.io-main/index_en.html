@@ -87,16 +87,66 @@
             </div>
             <div class="about-grid">
                 <div class="about-card reveal">
-                    <h3>Who I am</h3>
-                    <p>Front-end developer in training, passionate about creating modern, fast, and intuitive interfaces.<br><br>
+                    <div class="about-tabs" role="tablist" aria-label="About me">
+                        <button class="about-tab active" role="tab" id="about-tab-who" aria-selected="true" aria-controls="about-panel-who" data-tab="who">Who I am</button>
+                        <button class="about-tab" role="tab" id="about-tab-education" aria-selected="false" aria-controls="about-panel-education" data-tab="education">Academic background</button>
+                    </div>
+                    <div class="about-panels">
+                        <div class="about-panel active" role="tabpanel" id="about-panel-who" aria-labelledby="about-tab-who" data-panel="who">
+                            <h3>Who I am</h3>
+                            <p>Front-end developer in training, passionate about creating modern, fast, and intuitive interfaces.<br><br>
 Currently studying Systems Analysis and Development and building experience by developing real projects published on the web.<br><br>
 I have already created complete websites for local businesses, including institutional pages and online stores, applying good practices in responsiveness, performance, and usability.<br><br>
 I focus on clean code, functional design, and digital experiences that truly generate value.<br><br>
 I am looking for my first opportunity in the area to evolve, contribute to real projects, and grow as a developer.</p>
-                    <div class="about-highlights">
-                        <div class="about-pill"><i class="fas fa-code"></i><span>Front-end & UI</span></div>
-                        <div class="about-pill"><i class="fas fa-mobile-alt"></i><span>Responsive design</span></div>
-                        <div class="about-pill"><i class="fas fa-pen-nib"></i><span>Visual identity</span></div>
+                            <div class="about-highlights">
+                                <div class="about-pill"><i class="fas fa-code"></i><span>Front-end &amp; UI</span></div>
+                                <div class="about-pill"><i class="fas fa-mobile-alt"></i><span>Responsive design</span></div>
+                                <div class="about-pill"><i class="fas fa-pen-nib"></i><span>Visual identity</span></div>
+                            </div>
+                        </div>
+                        <div class="about-panel" role="tabpanel" id="about-panel-education" aria-labelledby="about-tab-education" data-panel="education">
+                            <h3>Academic background</h3>
+                            <div class="about-education">
+                                <div class="edu-item">
+                                    <span class="edu-title">Systems Analysis and Development</span>
+                                    <span class="edu-meta">Universidade Estacio de Sa · 2026 - 2028 (in progress)</span>
+                                    <p class="edu-desc">Focus on programming logic, data structures, databases, and web development.</p>
+                                </div>
+                                <div class="edu-item">
+                                    <span class="edu-title">Courses &amp; Certifications</span>
+                                    <div class="edu-courses">
+                                        <h4>Development &amp; Programming</h4>
+                                        <ul class="edu-list">
+                                            <li>Website Creation: HTML, CSS and JavaScript - Fundacao Bradesco</li>
+                                            <li>Code Versioning with Git and GitHub - DIO</li>
+                                            <li>Python Course: Intelligent Development with AI - Santander Open Academy</li>
+                                        </ul>
+                                        <h4>Data &amp; Artificial Intelligence</h4>
+                                        <ul class="edu-list">
+                                            <li>Data Engineering Fundamentals - Data Science Academy</li>
+                                            <li>Data Science and AI Fundamentals - Data Science Academy</li>
+                                            <li>Master AI with Gemini - Santander Open Academy</li>
+                                            <li>Power BI - Santander Open Academy</li>
+                                            <li>Introduction to Microsoft 365 Administration and AI (AZ-900) - Ka Solution</li>
+                                        </ul>
+                                        <h4>Networks &amp; Infrastructure</h4>
+                                        <ul class="edu-list">
+                                            <li>Computer Networks - Cisco Networking Academy</li>
+                                            <li>Introduction to Cybersecurity - Cisco Networking Academy</li>
+                                            <li>Hardware Support and Upgrades - Cisco Networking Academy</li>
+                                            <li>IT Fundamentals: Hardware and Software - Fundacao Bradesco</li>
+                                            <li>Information Technology Security - Fundacao Bradesco</li>
+                                        </ul>
+                                        <h4>Previous Professional Training</h4>
+                                        <ul class="edu-list">
+                                            <li>Security Guard Training - Forbin Formacao Especial</li>
+                                            <li>Armed Escort - Forbin Formacao Especial</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="about-card about-stats reveal">
@@ -107,10 +157,6 @@ I am looking for my first opportunity in the area to evolve, contribute to real 
                     <div class="stat">
                         <span class="stat-number">DX</span>
                         <span class="stat-label">Clean, scalable code</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">SEO</span>
-                        <span class="stat-label">Organic visibility</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">Perf</span>
